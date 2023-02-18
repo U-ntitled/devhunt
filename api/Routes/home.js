@@ -7,7 +7,7 @@ const { response } = require('express');
 route.get('api/home', async (req, res)=>{
     try{
         const query = uPost.find().sort({created_at: -1})
-        .exec((err, result)=>{
+        query.exec((err, result)=>{
             if(err) throw err
             res.status(200)
             res.send(result)
