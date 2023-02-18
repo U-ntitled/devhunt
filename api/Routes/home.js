@@ -3,22 +3,42 @@ const User = require('../Models/Users')
 const uPost = require('../Models/UserPost');
 
 
-route.get('api/home', async (req, res)=>{
+// Envoie des Postes
+route.get('/', async (req, res)=>{
     try{
-        const query = uPost.find().sort({created_at: -1})
-        query.exec((err, result)=>{
-            if(err) throw err
-            res.status(200)
-            res.send(result)
-    })
+        uPost.find({created_at: -1})
+        .then((found)=>{
+            if(found){
+                res
+                .status(200)
+                .json(found)
+                .end()
+            }
+            else{
+                
+                res
+                .status(404)
+                .end()
+            }
+        })
     }
     catch(e){
+        console.log(e)
         res.status(404)
         .end()
     }
 })
 
-route.get()
+// route.get('/image', async (res, req)=>{
+//     try{
+//         const query = 
+//     }
+//     catch(e){
+//         res
+//         .status(404)
+//         .ens()
+//     }
+// })
 
 
 module.exports = route

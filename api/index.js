@@ -7,6 +7,7 @@ const io = new Server(server);
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
 const authRouter = require('./Routes/auth')
+const homePost = require('./Routes/home')
 const multer = require('multer')
 const profile = multer({dest:'profile/'})
 const cors= require('cors')
@@ -41,7 +42,7 @@ app.use(express.json())
 app.use('/api/Routes/auth/',profile.single('profilePicture'),authRouter);
 
 //Utilisation du route home dans Routes
-app.use('/api/Routes/home/');
+app.use('/api/Routes/home/', homePost);
 
 
 //fonction de connection mongodb
