@@ -1,7 +1,6 @@
 const route = require('express').Router(); 
 const User = require('../Models/Users')
 const uPost = require('../Models/UserPost');
-const { response } = require('express');
 
 
 route.get('api/home', async (req, res)=>{
@@ -18,3 +17,11 @@ route.get('api/home', async (req, res)=>{
         .end()
     }
 })
+
+route.get()
+
+
+module.exports = route
+
+
+
