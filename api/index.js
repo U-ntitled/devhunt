@@ -45,8 +45,6 @@ app.use('/api/Routes/auth/',profile.single('profilePicture'),authRouter);
 app.use('/api/Routes/home/', homePost);
 
 
-//Utilisation du route home
-app.use("api/Routes/home")
 
 //fonction de connection mongodb
 async function main(){
