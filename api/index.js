@@ -41,9 +41,14 @@ app.use(express.json())
 //utilisation du route auth dans Routes
 app.use('/api/Routes/auth/',profile.single('profilePicture'),authRouter);
 
+<<<<<<< HEAD
 //Utilisation du route home dans Routes
 app.use('/api/Routes/home/', homePost);
+=======
+>>>>>>> 037856dd298a5cd14ae3c47e4fc46d46033cb3fa
 
+//Utilisation du route home
+app.use("api/Routes/home")
 
 //fonction de connection mongodb
 async function main(){

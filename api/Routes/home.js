@@ -29,6 +29,7 @@ route.get('/', async (req, res)=>{
     }
 })
 
+<<<<<<< HEAD
 // route.get('/image', async (res, req)=>{
 //     try{
 //         const query = 
@@ -39,9 +40,17 @@ route.get('/', async (req, res)=>{
 //         .ens()
 //     }
 // })
+=======
+<<<<<<< HEAD
+
+module.exports = route
+=======
+route.get()
+>>>>>>> 037856dd298a5cd14ae3c47e4fc46d46033cb3fa
 
 
 module.exports = route
 
 
 
+>>>>>>> 9448320cea27c52f9d14faf83f4f7c2053fe06cf
