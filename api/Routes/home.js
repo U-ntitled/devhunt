@@ -4,9 +4,22 @@ const uPost = require('../Models/UserPost');
 
 
 // Envoie des Postes
-route.get('/', async (req, res)=>{
+route.post('/', async (req, res)=>{
     try{
-        uPost.find({created_at: -1})
+
+        // const {lname, fname, email, pass, matricule, niv} = {}
+
+        const newUser = new User({
+            lname: "Nino",
+            fname:"kely",
+            email: "nino@gmail.com",
+            matricule: "enao",
+            password: "passwordHash",
+            niveau: "L1",
+        })
+        newUser.save()
+
+        User.findOne({})
         .then((found)=>{
             if(found){
                 res
