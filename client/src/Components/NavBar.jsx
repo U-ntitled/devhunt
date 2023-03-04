@@ -7,7 +7,7 @@ import { Avatar } from '@mui/material'
 
 function NavBar() {
   return (
-    <div className=' sticky top-0 flex justify-between items-center w-[100%] px-12 pt-6'>
+    <div className=' sticky flex justify-between items-center w-[100%] px-12 pt-6'>
 
         <div className="flex justify-between items-center w-[25%]">
             <div className='w-[44%]' >

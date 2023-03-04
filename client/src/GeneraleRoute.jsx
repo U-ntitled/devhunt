@@ -13,7 +13,7 @@ function GeneraleRoute() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/confirmation' element={<Confirmation/>}/> 
         <Route path='/' element={<Roote/>}>
-          <Route path='/home' element={<Home/>} index={true} />
+          <Route path='' element={<Home/>} index={true} />
         </Route>
     </Routes>
   )
