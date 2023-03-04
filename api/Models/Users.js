@@ -10,7 +10,7 @@ const UserSchema = mongoose.Schema({
    matricule:{type:String,require:true},
    niveau:{type:String,require:true},
    badge:{type:String},
-   nbr_signal: {type:Number},
+   nbr_signal: {type:Number,default:0},
 },
 {
     timestamps: true
