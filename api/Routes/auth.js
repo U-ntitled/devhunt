@@ -12,82 +12,68 @@ const Code = require('../Models/Code');
 dotenv.config()
 route.post('/register',async(req,res)=>{
     try{
-        const {lname,fname,identifiant,birth,password,gender} = req.body
-        console.log(lname,fname,identifiant,birth,password,gender)
-        if(!lname || !fname || !identifiant || !birth  || !password || !gender){
+        const {email,matricule} = req.body
+        if(!email || !matricule ){
              return res
             .status(400)
             .json({ErroMessage:'Please enter the required information'})
         }
-
-        if(password.length < 8){
-             return res
-            .status(400)
-            .json({ErroMessage:'Please enter more than 8 characters'})
+        const existingUser = await User.findOne({matricule})
+        
+        if(existingUser){
+            if(existingUser.email !== email){
+                return res
+                .status(401)
+                .json({ErroMessage: "L' email entrer ne coorespond a l' email de cette matricule "})
+            }else if(existingUser.matricule !== matricule){
+                return res
+                .status(401)
+                .json({ErroMessage: "votre matricule ne correspond a l' email "})
+            }else{
+                const verificationCode = speackeasy.totp({
+                    secret: process.env.PASSWORD_MY,
+                    encoding: 'base32'
+                })
+                const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth:{
+                        user: process.env.EMAIL_MY,
+                        pass: process.env.PASSWORD_MY
+                    }
+                })
+                const mailOptions = {
+                    from: 'fanomezantsoanomenandrianiaina@gmail.com',
+                    to: `${identifiant}`,
+                    subject:"Email Confirmation",
+                    text: `Hey ${fname} your code is ${verificationCode}`
+                }
+                
+                transporter.sendMail(mailOptions,function(err,info){
+                    if(err){
+                        console.error(err)
+                        return true
+                    }else{
+                        console.log('Email sent: ' + info.response)
+                        throw new Error(`Impossile d' envoyer l' email a ${email}`)
+                    }
+                })
+                const newCode = new Code({
+                    id: newUser._id,
+                    codetfa: verificationCode
+        
+                })
+                newCode.save() 
+                res
+                    .json({registerMessage:'authentification successful'})
+                    .send()
+            }
         }
-
-        const existingUser = await User.findOne({identifiant})
-        if(existingUser)
+        else{
             return res
             .status(401)
-            .json({ErroMessage: 'An account with that email or phone number already exists'})
-        
-        else{
-        const verificationCode = speackeasy.totp({
-            secret: process.env.PASSWORD_MY,
-            encoding: 'base32'
-        })
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth:{
-                user: process.env.EMAIL_MY,
-                pass: process.env.PASSWORD_MY
-            }
-        })
-        const mailOptions = {
-            from: 'fanomezantsoanomenandrianiaina@gmail.com',
-            to: `${identifiant}`,
-            subject:"Email Confirmation",
-            text: `Hey ${fname} your code is ${verificationCode}`
+            .json({ErroMessage: "Votre matricule n' existe pas"})
         }
-        transporter.sendMail(mailOptions,function(err,info){
-            if(err){
-                console.error(err)
-                return true
-            }else{
-                console.log('Email sent: ' + info.response)
-                throw new Error(`Impossile d' envoyer l' email a ${email}`)
-            }
-        })
-        const salt =  await bcrypt.genSalt();
-        const passwordHash = await bcrypt.hash(password,salt)
-        const typeofIdentifiant = isNaN(parseInt(identifiant)) ? 'email' : 'number';
-        const newUser = new User({
-            id: 'test',
-            lname,
-            birth:birth,
-            identifiant,
-            typeofIdentifiant,
-            password: passwordHash,
-        })
-        const newCode = new Code({
-            id: newUser._id,
-            codetfa: verificationCode
-
-        })
-        newCode.save()
-        const user = newUser.save()
-        const token = jwt.sign({
-            user: user._id
-        },process.env.JWT_SECRET)
-        res
-            .cookie("tokenNonV",token,{
-                expires: new Date(Date.now() +  259200),
-                httpOnly: true,
-            }) 
-            .json({registerMessage:'authentification successful'})
-            .send()
-           }
+           
     }catch(e){
         console.error(e)
     }
@@ -115,7 +101,7 @@ route.post('/codeVerification',async(req,res)=>{
                     user: code._id
                 },process.env.JWT_SECRET)
                 res
-                .cookie("SeraoToken",token,{
+                .cookie("token",token,{
                     expires: new Date(Date.now() +  259200000),
                     httpOnly: true,
                 })
@@ -142,7 +128,7 @@ route.post('/codeVerification',async(req,res)=>{
 })
 
 route.get('/',async(req,res)=>{
-    const token = req.cookies.SeraoToken
+    const token = req.cookies.token
     console.log(token)
     try{
         if(!token){
@@ -184,7 +170,7 @@ route.post('/login', async(req,res)=>{
             user: user._id
         },process.env.JWT_SECRET)
         res
-            .cookie("SeraoToken",token,{
+            .cookie("token",token,{
                 expires: new Date(Date.now() +  259200000),
                 httpOnly: true,
             })
@@ -201,7 +187,7 @@ route.post('/login', async(req,res)=>{
 //Suppression du code de verification
 route.delete('/deleteCode',async(req,res)=>{
     try{
-        const verificationToken= req.cookies.SeraoToken
+        const verificationToken= req.cookies.token
         const verified = jwt.verify(verificationToken, process.env.JWT_SECRET)
         console.log(verified)
         if(!verificationToken){
@@ -238,7 +224,7 @@ route.delete('/deleteCode',async(req,res)=>{
 //Mettre a jour le champ de verificatiion dans le modele de l' ustisateur
 route.put('/updateCode',async(req,res)=>{
     try{
-        const verificationToken= req.cookies.SeraoToken
+        const verificationToken= req.cookies.token
         const verified = jwt.verify(verificationToken, process.env.JWT_SECRET)
         console.log(verified)
         if(!verificationToken){
