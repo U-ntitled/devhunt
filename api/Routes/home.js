@@ -4,28 +4,17 @@ const uPost = require('../Models/UserPost');
 
 
 // Envoie des Postes
-route.post('/', async (req, res)=>{
+route.get('/', async (req, res)=>{
     try{
 
-        // const {lname, fname, email, pass, matricule, niv} = {}
 
-        const newUser = new User({
-            lname: "Nino",
-            fname:"kely",
-            email: "nino@gmail.com",
-            matricule: "enao",
-            password: "passwordHash",
-            niveau: "L1",
-        })
-        newUser.save()
-
-        User.findOne({})
+        //Recuperation des postes utilisateurs par date de creation
+        uPost.find({created_at: -1})
         .then((found)=>{
             if(found){
                 res
                 .status(200)
                 .json(found)
-                .end()
             }
             else{
                 
