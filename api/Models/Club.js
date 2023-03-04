@@ -11,4 +11,4 @@ const ClubSchema = mongoose.Schema({
 }
 )
 
-module.exports = mongoose.model("club", UserPostSchema);
+module.exports = mongoose.model("club", ClubSchema);
