@@ -1,7 +1,6 @@
 const route = require('express').Router(); 
 const User = require('../Models/Users')
 const uPost = require('../Models/UserPost');
-const { response } = require('express');
 
 
 route.get('api/home', async (req, res)=>{
@@ -19,5 +18,15 @@ route.get('api/home', async (req, res)=>{
     }
 })
 
+<<<<<<< HEAD
 
 module.exports = route
+=======
+route.get()
+
+
+module.exports = route
+
+
+
+>>>>>>> 9448320cea27c52f9d14faf83f4f7c2053fe06cf
