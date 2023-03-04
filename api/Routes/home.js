@@ -6,13 +6,12 @@ const uPost = require('../Models/UserPost');
 // Envoie des Postes
 route.get('/', async (req, res)=>{
     try{
-        uPost.find({created_at: -1})
+        uPost.find({}).limit(10)
         .then((found)=>{
             if(found){
                 res
                 .status(200)
                 .json(found)
-                .end()
             }
             else{
                 
