@@ -6,7 +6,10 @@ const uPost = require('../Models/UserPost');
 // Envoie des Postes
 route.get('/', async (req, res)=>{
     try{
-        uPost.find({}).limit(10)
+
+
+        //Recuperation des postes utilisateurs par date de creation
+        uPost.find({created_at: -1})
         .then((found)=>{
             if(found){
                 res
