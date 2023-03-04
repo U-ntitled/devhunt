@@ -40,6 +40,8 @@ app.use(express.json())
 //utilisation du route auth dans Routes
 app.use('/api/Routes/auth/',profile.single('profilePicture'),authRouter);
 
+//Utilisation du route home
+app.use("api/Routes/home")
 //fonction de connection mongodb
 async function main(){
     await mongoose.connect(process.env.MONGO_URL);

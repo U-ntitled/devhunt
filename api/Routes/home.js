@@ -18,3 +18,6 @@ route.get('api/home', async (req, res)=>{
         .end()
     }
 })
+
+
+module.exports = route
