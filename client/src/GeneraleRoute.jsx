@@ -1,5 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Activity from './Pages/Activity'     
+import Challenge from './Pages/Challenge'
 import AskedQuestion from './Components/AskedQuestion'
 import ForumFeed from './Components/ForumFeed'
 import Question from './Components/Question'
@@ -7,11 +9,9 @@ import Confirmation from './Pages/Confirmation'
 import Forum from './Pages/Forum'
 import Home from './Pages/Home'
 import Login from './Pages/Login'
+import Profile from './Pages/Profile'
 import Root from './Pages/Root'
 import Signup from './Pages/Signup'
-import Profile from './Pages/Profile'
-import Challenge from './Pages/Challenge'
-import Activity from './Pages/Activity'
 import ChallengeFeed from './Components/ChallengeFeed'
 import ChallengePart from './Components/ChallengePart'
 
@@ -38,6 +38,8 @@ function GeneraleRoute() {
                 <Route path='ask' element={<AskedQuestion/>}/>
           </Route>
         </Route>
+         
+
     </Routes>
   )
 }
