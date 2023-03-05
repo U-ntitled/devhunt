@@ -5,11 +5,11 @@ import React, { useState }  from 'react'
 
 
 
-function Filter({visible}) {
+function ChallengeFilter({visible}) {
      
     const [value, setValue] = useState("Topic")
     const [item, setItem] = useState("Plus recent")
-    const [valeur, setValeur] = useState("Résolu")
+    const [valeur, setValeur] = useState("Difficulte")
 
     const handleChange = (e) =>{
       setValue(e.target.value)
@@ -76,9 +76,9 @@ function Filter({visible}) {
   
         >
          <MenuItem value='Plus recent'>Plus recent</MenuItem>
-         <MenuItem  value='l y a une semaine'>Il y a une semaine</MenuItem>
-         <MenuItem value="Il y a un mois">Il y a un mois</MenuItem>
-         <MenuItem value='Il y a un an'> Il y a un an</MenuItem>
+         <MenuItem  value='l y a une semaine'>Il y a une semaine+</MenuItem>
+         <MenuItem value="Il y a un mois">Il y a un mois+</MenuItem>
+         <MenuItem value='Il y a un an'> Il y a un an+</MenuItem>
         
           
         </Select>
@@ -92,15 +92,17 @@ function Filter({visible}) {
           onChange={handleChange2}
   
         >
-         <MenuItem value='Résolu'>Résolu</MenuItem>
-         <MenuItem  value='Non résolu'>'Non résolu</MenuItem>
-        
+         <MenuItem value='Difficulte'>Difficulte</MenuItem>
+         <MenuItem  value='Facile'>Facile</MenuItem>
+         <MenuItem value="Moyen">Moyen</MenuItem>
+         <MenuItem value='Difficile'> Difficile</MenuItem>
         
           
         </Select>
+
     </motion.div>
     
   )
  }
 
-export default Filter
+export default ChallengeFilter

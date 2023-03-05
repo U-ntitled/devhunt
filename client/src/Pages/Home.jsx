@@ -147,10 +147,10 @@ function Home() {
                       <Avatar  src={userIcon} />
                     </div>
                     <div className="w-[60%]">
-                      <input type='texte'
-                         className='border border-none   
-                          text-sm text-[#868686] bg-[#ffffff32] w-[100%] h-[4vh] rounded-full focus:outline-none pl-5'
-                       placeholder='Taper pour rechercher..'
+                      <input type='text' name='text' 
+                        id='text' className='border border-none   
+                          text-sm text-[#868686] bg-[#ffffff21] w-[100%] h-[4vh] rounded-full focus:outline-none pl-5'
+                       placeholder='Partager aux collegues..'
                       />
                     </div>
                     <div className="w-[15%] flex justify-start">

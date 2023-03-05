@@ -11,6 +11,7 @@ const UserSchema = mongoose.Schema({
    niveau:{type:String,require:true},
    badge:{type:String},
    nbr_signal: {type:Number,default:0},
+   nbr_recommandation: {type:Number, default:0}
 },
 {
     timestamps: true

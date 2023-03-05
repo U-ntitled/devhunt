@@ -6,12 +6,16 @@ const {Server} = require('socket.io');
 const io = new Server(server);
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
-const authRouter = require('./Routes/auth')
-const homePost = require('./Routes/home')
 const multer = require('multer')
 const profile = multer({dest:'profile/'})
 const cors= require('cors')
 const cookieParser  = require('cookie-parser')
+
+// Subroutes 
+const authRouter = require('./Routes/auth')
+const homePost = require('./Routes/home')
+const profileRouter = require("./Routes/profile")
+const actionProcessing = require("./Routes/dataProcessing")
 
 
 dotenv.config()
@@ -44,7 +48,12 @@ app.use('/api/Routes/auth/',profile.single('profilePicture'),authRouter);
 //Utilisation du route home dans Routes
 app.use('/api/Routes/home/', homePost);
 
+/* Utilisation de route profile dans Routes 
+Mise en place des api */
+app.use("api/Routes/profile/", profileRouter)
 
+/* Gestion des actions non rendu dans l'ui */
+app.use("api/Routes/action/",actionProcessing)
 
 //fonction de connection mongodb
 async function main(){
