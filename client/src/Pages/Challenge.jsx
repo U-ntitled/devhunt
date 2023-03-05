@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import FiltreIcon from '../Image/filter.svg'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import qIcon from '../Image/Q.png';
+import partIcon from '../Image/Vector.png'
 
 function Challenge() {
   const [showTopics, setShowTopics] = useState(false);
@@ -10,27 +12,25 @@ function Challenge() {
   }
   return (
     <div className='flex justify-between items-center w-[100%] mt-16'>
-        <div className="flex flex-col w-[15%] mx-12 space-y-6 bg-[#FFFFFF23] p-4 rounded-xl">
-            <div className="flex justify-start items-center">
-                <div className=" ">
-                      <img src={FiltreIcon} alt='filter icon' />
-                </div>
-                <div className="text-[#f2f2f2] text-3xl">
-                   <h2>Filtrer</h2>
-                </div>
-            </div>
-            <div className="flex justify-between items-center">
-                <div className="text-[#f2f2f2] text-2xl">
-                    <h2>Topic</h2>
-                </div>
-                <div className="text-[#f2f2f2] "> 
-                  {showTopics ? <ExpandMoreIcon/> : <ExpandLessIcon/>}
-                </div>
-            </div>
-            <div className="w-[60%] bg-[#0D0D0D]">
-
-            </div>
-        </div>
+        <div className='w-[25%] flex justify-center px-10  ml-20'>
+         <div className='w-full flex flex-col items-center m-2'>
+              <div className='bg-[#ffffff16] w-full rounded-lg'>
+                    <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-6 w-full'>
+                        <img src={FiltreIcon} alt="Question icon"/>
+                        <span className='text-lg font-bold text-white ml-8 '>Filter</span>
+                    </div>
+                 {/* <Filter/> */}
+              </div>
+              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
+                   <img src={qIcon} alt="Question icon"/>
+                   <span className='text-lg font-bold text-white ml-8'>Mes questions</span>
+              </div> 
+              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
+                   <img src={partIcon} alt="Question icon"/>
+                   <span className='text-lg font-bold text-white ml-9'>Mes participations</span>
+              </div>
+         </div>
+      </div>
     </div>
   )
 }

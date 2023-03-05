@@ -14,7 +14,7 @@ function NavBar() {
                 <img className="" src={ENI} alt='logo' />
             </div>
             <div className="">
-                 <input type='text' 
+                 <input type='search' 
                         className='border border-none   
                         text-sm text-[#868686] bg-[#ffffff21] w-[12vw] h-[4vh] rounded-full focus:outline-none pl-5'
                      placeholder='Taper pour rechercher..'
