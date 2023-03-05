@@ -1,8 +1,11 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
 import userIcon from '../Image/user.svg'
+import { useNavigate } from 'react-router-dom'
+
 
 function ChallengeCard() {
+  const navigate = useNavigate()
   return ( 
     <div className="w-[70%] p-5 ml-16 flex flex-col items-start space-y-2  bg-[#0D0D0D] mb-2">
         <div className="flex flex-row justify-between h-[20%] p-10 w-[100%]">
@@ -26,7 +29,7 @@ function ChallengeCard() {
              <h2  className='text-[#f2f2f2] text-2xl'>24 <span className='text-[#868686]'> Participants</span></h2>
           </div>
           <div className="text-[#f2f2f2] cursor-pointer py-1 mt-5 text-base  flex justify-center items-center  bg-[#00B8FFCA] w-[35%]">
-              <span>Participer</span>
+              <span>Participer  </span>
           </div>
         </div>
 

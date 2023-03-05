@@ -29,7 +29,6 @@ function GeneraleRoute() {
           <Route path = '/challenge' element={<Challenge/>}>
             <Route path=''element={<ChallengeFeed/>} index={true}/>
             <Route path='challenge/:id' element={<ChallengePart/>}/>
-
           </Route>
           <Route path='/activity' element={<Activity/>}/>
 

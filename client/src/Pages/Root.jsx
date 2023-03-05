@@ -5,7 +5,7 @@ import NavBar from '../Components/NavBar'
 
 function Root() {
   return (
-  <div className='bg-[#001935]  '> 
+  <div className='bg-[#001935] oveflow-y-hidden'> 
     <div className="">
       <NavBar/>
     </div>
