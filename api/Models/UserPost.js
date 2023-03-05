@@ -9,8 +9,12 @@ const UserPostSchema = mongoose.Schema({
     delay: {type:Date,require:false},
     created_at : {type:Date, require:true, default:Date.now},
     num_comment: {type:Number,require:true,default:0},
+    num_recommendation: {type: Number, require:true, default:0},
+    difficulty: {type:String, default:"facile"}, //Challenge difficulty
     user_mentionned: {type:Array,require:false},
     type: {type:String, require:true}, //POST,SHARE,EVENT,CHALLLENGE
+
+    // References
     owner: [{type: mongoose.Schema.Types.ObjectId, ref: "user"}],
     comments : [{type: mongoose.Schema.Types.ObjectId, ref: "comment"}]
 },
