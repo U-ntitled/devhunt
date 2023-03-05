@@ -5,21 +5,22 @@ import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutl
 import UserProfile from '../Image/userpro.svg'
 import Activity from '../Image/activity.svg'
 import { Avatar } from '@mui/material';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 function Profile() {
   return (
     <div className='w-[100%]  mt-16'>
         <div className="flex justify-between w-[100%] ">
             <div className="w-[30%] flex flex-col space-y-8   ">
-                <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
-                      <div className="cursor-pointer mr-2 " >
-                        <img src={UserProfile} alt=''/>
+                <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+                      <div className="cursor-pointer mr-2" >
+                        <AccountCircleOutlinedIcon sx={{color: '#00B8FF', fontSize:'2em'}}/>
                       </div>
                       <div className="text-white font-medium">
-                        <h2>Profile</h2>
+                        <h2> Profile</h2>
                       </div>
                 </div>
-                <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+                <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
                       <div className="cursor-pointer mr-2 " >
                         <img src={Activity} alt=''/>
                       </div>
@@ -27,9 +28,9 @@ function Profile() {
                         <h2>Mes activites</h2>
                       </div>
                 </div>
-                <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+                <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
                       <div className="cursor-pointer mr-2 " >
-                            <SettingsOutlinedIcon sx={{color:'#00B8FF'}}/>
+                            <SettingsOutlinedIcon sx={{color:'#00B8FF', fontSize:'2em'}}/>
                       </div>
                       <div className="text-white font-medium">
                         <h2>Parametres</h2>
@@ -37,7 +38,7 @@ function Profile() {
                 </div>
                 <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center  w-[50%] h-14 ">
                     <LogoutIcon sx={{color:'#00B8FF'}} />
-                    <h2 className='text-xl font-semibold text-[#f2f2f2]'>Se Deconnecter</h2>
+                    <h2 className='text-xl font-semibold ml-2 text-[#f2f2f2]'>Se Deconnecter</h2>
                 </div>
             </div>
             <div className="flex flex-col  space-y-10 w-[60%] mx-12">

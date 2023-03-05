@@ -8,6 +8,7 @@ import { Avatar } from '@mui/material';
 import userIcon from '../Image/user.svg'
 import Navig from '../Image/navigate.svg'
 import Solved from '../Image/true.svg'
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 function Activity() {
   const result = [
@@ -48,15 +49,15 @@ function Activity() {
     <div className='w-[100%]  mt-16'>
     <div className="flex justify-between w-[100%] ">
         <div className="w-[30%] flex flex-col space-y-8   ">
-            <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+            <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
                   <div className="cursor-pointer mr-2 " >
-                    <img src={UserProfile} alt=''/>
+                    <AccountCircleOutlinedIcon sx={{color:'#00B8FF', fontSize:'2em'}}/>
                   </div>
                   <div className="text-white font-medium">
                     <h2>Profile</h2>
                   </div>
             </div>
-            <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+            <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
                   <div className="cursor-pointer mr-2 " >
                     <img src={ActivityIcon} alt=''/>
                   </div>
@@ -64,9 +65,9 @@ function Activity() {
                     <h2>Mes activites</h2>
                   </div>
             </div>
-            <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
+            <div className="cursor-pointer flex mx-auto mt-5 justify-start pl-14 items-center bg-[#ffffff21] w-[50%] h-14 rounded-full ">
                   <div className="cursor-pointer mr-2 " >
-                        <SettingsOutlinedIcon sx={{color:'#00B8FF'}}/>
+                        <SettingsOutlinedIcon sx={{color:'#00B8FF', fontSize:'2em'}}/>
                   </div>
                   <div className="text-white font-medium">
                     <h2>Parametres</h2>
@@ -74,7 +75,7 @@ function Activity() {
             </div>
             <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center  w-[50%] h-14 ">
                 <LogoutIcon sx={{color:'#00B8FF'}} />
-                <h2 className='ml-2 text-2xl font-semibold text-[#f2f2f2]'>Se deconnecter</h2>
+                <h2 className='ml-2 text-xl font-semibold text-[#f2f2f2]'>Se deconnecter</h2>
             </div>
         </div>
         <div className="flex flex-col  space-y-10 w-[60%] mx-12">
