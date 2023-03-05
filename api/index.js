@@ -15,6 +15,7 @@ const cookieParser  = require('cookie-parser')
 const authRouter = require('./Routes/auth')
 const homePost = require('./Routes/home')
 const profileRouter = require("./Routes/profile")
+const forum = require('./Routes/forum')
 const actionProcessing = require("./Routes/dataProcessing")
 
 
@@ -50,10 +51,13 @@ app.use('/api/Routes/home/', homePost);
 
 /* Utilisation de route profile dans Routes 
 Mise en place des api */
-app.use("api/Routes/profile/", profileRouter)
+app.use("/api/Routes/profile/", profileRouter)
 
 /* Gestion des actions non rendu dans l'ui */
-app.use("api/Routes/action/",actionProcessing)
+app.use("/api/Routes/action/",actionProcessing)
+
+//gestions des sctions dans la partie FORUM
+app.use('/api/Routes/forum/', forum)
 
 //fonction de connection mongodb
 async function main(){
