@@ -6,7 +6,7 @@ const GlobalContext = ({children}) => {
     const [connection,setConnection] = useState('')
     const getCookie = useCallback( async() =>{
       const cookie = await axios.get('http://localhost:8000/api/Routes/auth/')
-      setConnection(cookie)
+      setConnection(cookie.data.connection)
   },[])
     useEffect(()=>{
         getCookie()
