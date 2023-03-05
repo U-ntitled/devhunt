@@ -4,15 +4,23 @@ import MessageIcon from '../Image/message.svg'
 import userIcon from '../Image/user.svg'
 import NotificationIcon from '../Image/noti.svg'
 import { Avatar } from '@mui/material'
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
+const activeLink = {
+     color:"#00CF35"
+}
+const desactiveLink = {
+    color:"#f2f2f2"
+}
 function NavBar() {
+  
   return (
     <div className=' sticky flex justify-between items-center w-[100%] px-12 pt-6'>
 
         <div className="flex justify-between items-center w-[25%]">
-            <div className='w-[44%]' >
+            <Link to='/' className='w-[44%]' >
                 <img className="" src={ENI} alt='logo' />
-            </div>
+            </Link>
             <div className="">
                  <input type='search' 
                         className='border border-none   
@@ -23,27 +31,42 @@ function NavBar() {
         </div>
 
         <div className="w-[30%] flex justify-between items-center">
-            <div className="text-[#01CF35]">
-                <h2 className=''>Accueil</h2>
-            </div>
-            <div className="text-[#f2f2f2]">
-                <h2>Forum</h2>
-            </div>
-            <div  className="text-[#f2f2f2]">
-                <h2>Challenge</h2>
-            </div>
+            <NavLink 
+                to='/'
+                style={({isActive})=>
+                    isActive ? activeLink: desactiveLink   
+                }
+            >
+                    Accueil
+            </NavLink>
+            <NavLink 
+                to='/forum'
+                style={({isActive})=>
+                    isActive ? activeLink: desactiveLink   
+                }
+            >
+                    Forum
+            </NavLink>
+            <NavLink 
+                to='/challenge'
+                style={({isActive})=>
+                    isActive ? activeLink: desactiveLink   
+                }
+            >
+                    Challenge
+            </NavLink>
         </div>
 
         <div className="w-[15%] flex justify-between items-center">
-            <div className="">
+            <Link to="/Discussion">
                     <img src={MessageIcon} alt="ICon message"  />
-            </div>
-            <div className="">
+            </Link>
+            <Link to="/notification">
                 <img src={NotificationIcon} alt="ICon message"  />
-            </div>
-            <div className="">
+            </Link>
+            <Link to="/profile">
                <Avatar  src={userIcon} />
-            </div>
+            </Link>
         </div>
 
     </div>

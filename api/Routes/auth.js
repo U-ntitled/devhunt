@@ -12,8 +12,9 @@ const Code = require('../Models/Code');
 dotenv.config()
 route.post('/register',async(req,res)=>{
     try{
-        const {email,matricule} = req.body
-        if(!email || !matricule ){
+        const {email,matricule,lname,fname} = req.body
+        console.log(email,matricule,lname,fname)
+        if(!email || !matricule || !fname || !lname){
              return res
             .status(400)
             .json({ErroMessage:'Please enter the required information'})
@@ -29,7 +30,12 @@ route.post('/register',async(req,res)=>{
                 return res
                 .status(401)
                 .json({ErroMessage: "votre matricule ne correspond a l' email "})
-            }else{
+            }else if(lname !== existingUser.lname || fname !== existingUser.fname){
+                return res 
+                .status(401)
+                .json({ErroMessage: "Le nom ou le prenom ne correspond pas au matricule entrer "}) 
+            }
+            else{
                 const verificationCode = speackeasy.totp({
                     secret: process.env.PASSWORD_MY,
                     encoding: 'base32'
@@ -43,7 +49,7 @@ route.post('/register',async(req,res)=>{
                 })
                 const mailOptions = {
                     from: 'fanomezantsoanomenandrianiaina@gmail.com',
-                    to: `${identifiant}`,
+                    to: `${email}`,
                     subject:"Email Confirmation",
                     text: `Hey ${fname} your code is ${verificationCode}`
                 }
@@ -58,12 +64,21 @@ route.post('/register',async(req,res)=>{
                     }
                 })
                 const newCode = new Code({
-                    id: newUser._id,
-                    codetfa: verificationCode
-        
+                    codetfa: verificationCode,
+                    id: existingUser._id,
+                    test:"nomena"
                 })
                 newCode.save() 
+
+                const token =   jwt.sign({
+                    user: existingUser._id
+                },process.env.JWT_SECRET)
+
                 res
+                    .cookie("tokenNonV",token,{
+                        expires: new Date(Date.now() +  259200000),
+                        httpOnly: true,
+                    })
                     .json({registerMessage:'authentification successful'})
                     .send()
             }
@@ -81,7 +96,8 @@ route.post('/register',async(req,res)=>{
 
 route.post('/codeVerification',async(req,res)=>{
     try{
-        const {codetfa} = req.body
+        const {codeEnter} = req.body
+        console.log(codeEnter,9000)
         const token = req.cookies.tokenNonV
         if(!token){
             return res
@@ -96,12 +112,13 @@ route.post('/codeVerification',async(req,res)=>{
             const payloadinit = buff.toString('ascii')
             const payload = JSON.parse(payloadinit)
             const code  = await Code.findOne({id: payload.user})
-            if(codetfa === code.codetfa){
+            console.log(code,8000)
+            if(codeEnter === code.codetfa){
                 const token =   jwt.sign({
-                    user: code._id
+                    user: payload._id
                 },process.env.JWT_SECRET)
                 res
-                .cookie("token",token,{
+                .cookie("user_id",token,{
                     expires: new Date(Date.now() +  259200000),
                     httpOnly: true,
                 })
@@ -128,12 +145,11 @@ route.post('/codeVerification',async(req,res)=>{
 })
 
 route.get('/',async(req,res)=>{
-    const token = req.cookies.token
-    console.log(token)
+    const token = req.cookies.user_id
     try{
         if(!token){
             res
-            .status(401)
+            .status(200)
             .json({connection:false})
         }else{
             res
@@ -148,13 +164,13 @@ route.get('/',async(req,res)=>{
 //Login api
 route.post('/login', async(req,res)=>{
     try{
-        const {identifiant,password}= req.body
-        if(!identifiant || !password){
+        const {email,password}= req.body
+        if(!email || !password){
             return res
             .status(400)
             .json({ErroMessage: 'Please Enter the required fields'})
         }
-        const user = await User.findOne({identifiant})
+        const user = await User.findOne({email})
         if(!user){
             return res
             .status(401)
@@ -170,7 +186,7 @@ route.post('/login', async(req,res)=>{
             user: user._id
         },process.env.JWT_SECRET)
         res
-            .cookie("token",token,{
+            .cookie("user_id",token,{
                 expires: new Date(Date.now() +  259200000),
                 httpOnly: true,
             })
@@ -187,7 +203,7 @@ route.post('/login', async(req,res)=>{
 //Suppression du code de verification
 route.delete('/deleteCode',async(req,res)=>{
     try{
-        const verificationToken= req.cookies.token
+        const verificationToken= req.cookies.tokenNonV
         const verified = jwt.verify(verificationToken, process.env.JWT_SECRET)
         console.log(verified)
         if(!verificationToken){
@@ -222,14 +238,20 @@ route.delete('/deleteCode',async(req,res)=>{
 
 
 //Mettre a jour le champ de verificatiion dans le modele de l' ustisateur
-route.put('/updateCode',async(req,res)=>{
+route.put('/updatePassword',async(req,res)=>{
     try{
-        const verificationToken= req.cookies.token
+        const verificationToken= req.cookies.user_id
+        const {password,confirmation} = req.body
+        if(password !== confirmation){
+            return res
+            .status(401)
+            .json({ErroMessage: "Les deux mots de passe entrer ne sont pas identique "})
+        }
         const verified = jwt.verify(verificationToken, process.env.JWT_SECRET)
         console.log(verified)
         if(!verificationToken){
             return res
-                 .json({'error Message': 'Unauthorized'})
+                 .json({'error Message': 'Veuillez confirmer votre identiter'})
                  .status(401)
         }else{
             const base64Url = verificationToken.split('.')[1]
@@ -239,7 +261,7 @@ route.put('/updateCode',async(req,res)=>{
             const payload = JSON.parse(payloadinit)
             console.log('payload:',payload.user)
             const newData = {
-                verify: true
+                password
             }
             const condition = {_id: payload.user}
             const updatingUser = await User.updateOne(condition,{

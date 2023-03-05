@@ -6,8 +6,8 @@ import qIcon from '../Image/Q.png';
 import partIcon from '../Image/Vector.png'
 import ChallengeFilter from '../Components/ChallengeFilter'
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
-import { Avatar } from '@mui/material';
-import userIcon from '../Image/user.svg'
+import { Outlet } from 'react-router-dom';
+
 
 function Challenge() {
   const [visible, setVisible] = useState(false)
@@ -17,8 +17,8 @@ function Challenge() {
   }
 
   return (
-    <div className='flex justify-between items-center w-[100%] h-[100%] mt-32'>
-        <div className='w-[25%] flex justify-center px-10  ml-20'>
+    <div className='flex justify-between w-[100%] h-[100%] mt-32'>
+        <div className='w-[35%] flex justify-center px-10  ml-20'>
           <div className='w-full flex flex-col items-center m-2'>
               <div className='bg-[#ffffff16] w-full rounded-lg'>
                     <div
@@ -39,25 +39,11 @@ function Challenge() {
               </div>
           </div>
          </div>
-         <div className="flex justify-start w-[65%] h-44 p-5 bg-[#0D0D0D]">
-          <div className="flex flex-row justify-between w-[70%]">
-            <div className="flex flex-row">
-              <Avatar  src={userIcon} sx={{width:'2.8em', height:'2.8em'}} />
-              <span className='text-[#868686] text-lg ml-4'>Riry Nomenjanahary</span>
-            </div>
-            <div className="">
-              <h2 className='text-[#00CF35] font-medium text-2xl'>Difficile</h2>
-            </div>
-          </div>
-          <div className="">
 
-          </div>
-          <div className="">
-
-          </div>
-          <div className="">
-
-          </div>
+         {/*? Middle section */}
+         
+         <div className=" w-[100%] h-[100%]">
+          <Outlet/>
         </div>
 
     </div>
