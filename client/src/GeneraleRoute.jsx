@@ -16,6 +16,7 @@ function GeneraleRoute() {
         <Route path='/login' element={<Login/>}/>       
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/confirmation' element={<Confirmation/>}/> 
+<<<<<<< HEAD
         <Route path='/' element={<Root/>}>
           <Route path='/home' element={<Home/>} index={true} />
               <Route path='/forum' element={<Forum/>}>
@@ -23,6 +24,10 @@ function GeneraleRoute() {
                     <Route path='question/:id' element={<Question/>}/>
                     <Route path='ask' element={<AskedQuestion/>}/>
               </Route>
+=======
+        <Route path='/' element={<Roote/>}>
+          <Route path='' element={<Home/>} index={true} />
+>>>>>>> 7c2982f060a4969af220d71660b6c27cf0b52434
         </Route>
     </Routes>
   )
