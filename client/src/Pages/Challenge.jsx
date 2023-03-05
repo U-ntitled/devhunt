@@ -7,7 +7,7 @@ import partIcon from '../Image/Vector.png'
 import ChallengeFilter from '../Components/ChallengeFilter'
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 import { Outlet } from 'react-router-dom';
-
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 function Challenge() {
   const [visible, setVisible] = useState(false)
@@ -23,24 +23,26 @@ function Challenge() {
               <div className='bg-[#ffffff16] w-full rounded-lg'>
                     <div
                         onClick={() => setVisible(!visible)}
-                        className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-6 w-full'>
+                        className='flex justify-start items-center bg-[#ffffff16] rounded-xl cursor-pointer py-2 px-6 w-full'>
                         <img src={FiltreIcon} alt="Question icon"/>
                         <span className='text-lg font-bold text-white ml-8 '>Filtrer</span>
                     </div>
                  <ChallengeFilter visible={visible}/>
               </div>
-              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
+              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl cursor-pointer py-2 px-4 w-full mt-4'>
                    <EmojiEventsOutlinedIcon sx={{color:'#00B8FF', fontSize:'2em'}}/>
                    <span className='text-lg font-bold text-white ml-8'>Mes challenges</span>
               </div> 
-              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
+              <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl cursor-pointer py-2 px-4 w-full mt-4'>
                    <img src={partIcon} alt="Question icon"/>
                    <span className='text-lg font-bold text-white ml-9'>Mes participations</span>
               </div>
+              <div className='flex justify-start items-center bg-[#00B8FFde] mt-10 rounded-xl cursor-pointer py-3 px-4 w-full'>
+                   <AddOutlinedIcon sx={{color:'#f2f2f2', fontSize:'2em', fontWeight:'bold'}}/>
+                   <span className='text-lg font-bold text-white ml-9'>Creer votre challenge</span>
+              </div>
           </div>
          </div>
-
-         {/*? Middle section */}
          
          <div className=" w-[100%] h-[100%]">
           <Outlet/>

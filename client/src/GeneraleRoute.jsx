@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Activity from './Pages/Activity'     
 import Challenge from './Pages/Challenge'
@@ -15,14 +15,19 @@ import Signup from './Pages/Signup'
 import ChallengeFeed from './Components/ChallengeFeed'
 import ChallengePart from './Components/ChallengePart'
 import ConfirmPassword from './Pages/ConfirmPassword'
+<<<<<<< HEAD
 import Dashboard from './Pages/Dashboard/Dashboard'
 import Principale from './Pages/Dashboard/Home'
 import Notifiaction from './Pages/Dashboard/Notifiaction'
 import Post from './Pages/Dashboard/Post'
 import Settings from './Pages/Dashboard/Settings'
 import User from './Pages/Dashboard/User'
+=======
+import MyContext from './Context'
+>>>>>>> 673665b02c461721550f1a87613494afb0f8e003
 
 function GeneraleRoute() {
+  const {connection} = useContext(MyContext)
   return (
     <Routes>
          
@@ -31,6 +36,7 @@ function GeneraleRoute() {
           <Route path='/confirmation' element={<Confirmation/>}/> 
           <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
 
+<<<<<<< HEAD
           <Route path='/' element={<Root/>}>
                 <Route path='' element={<Home/>} index={true} />
 
@@ -46,6 +52,14 @@ function GeneraleRoute() {
                       <Route path='question/:id' element={<Question/>}/>
                       <Route path='ask' element={<AskedQuestion/>}/>
                 </Route>
+=======
+
+<<<<<<< HEAD
+          <Route path='/profile' element={<Profile/>}/> 
+          <Route path = '/challenge' element={<Challenge/>}>
+            <Route path=''element={<ChallengeFeed/>} index={true}/>
+            <Route path='challenge/:id' element={<ChallengePart/>}/>
+>>>>>>> 673665b02c461721550f1a87613494afb0f8e003
           </Route>
           <Route path='/dashboard' element={<Dashboard/>}>
                       <Route path='' element={<Principale/>} index={true}/>
@@ -54,6 +68,34 @@ function GeneraleRoute() {
                       <Route path="Settings" element={<Settings/>}/>
                       <Route path='user' element={<User/>}/>
           </Route>
+<<<<<<< HEAD
+=======
+        </Route>
+=======
+          {
+            connection && (
+              <Route path='/' element={<Root/>}>
+              <Route path='' element={<Home/>} index={true} />
+    
+              <Route path='/profile' element={<Profile/>}/> 
+              <Route path = '/challenge' element={<Challenge/>}>
+                <Route path=''element={<ChallengeFeed/>} index={true}/>
+                <Route path=':id' element={<ChallengePart/>}/>
+    
+              </Route>
+              <Route path='/activity' element={<Activity/>}/>
+    
+              <Route path='/forum' element={<Forum/>}>
+                    <Route path=''element={<ForumFeed/>} index={true}/>
+                    <Route path='question/:id' element={<Question/>}/>
+                    <Route path='ask' element={<AskedQuestion/>}/>
+              </Route>
+            </Route>
+            )
+          }
+
+>>>>>>> origin/master
+>>>>>>> 673665b02c461721550f1a87613494afb0f8e003
          
 
     </Routes>

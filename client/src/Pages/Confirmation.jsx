@@ -11,15 +11,15 @@ function Confirmation() {
         setCode(e.target.value)
         const newcode = code.toString()
         if( newcode.length === 6){
-
-            const confirmeCode = await axios.post('http://localhost:8000/api/routes/auth/codeVerification',code)
-            const  deleteCode = await axios.delete('http://localhost:8000/api/routes/auth/deleteCode')
-            console.log(deleteCode)
+            const codEnter = code
+            const confirmeCode = await axios.post('http://localhost:8000/api/routes/auth/codeVerification',codEnter)
             if(confirmeCode.status === 200){
-                    navigate('/')
+                navigate('/')
             }else{
                 console.log('code incorrecte')
             }
+            const  deleteCode = await axios.delete('http://localhost:8000/api/routes/auth/deleteCode')
+            console.log(deleteCode)
         }
     }
     const HandleClickResend = () =>{
