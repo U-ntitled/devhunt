@@ -227,14 +227,28 @@ route.delete('/delete/:id', async (req, res) =>{
 })
 
 
-// Insertion test
+// Insertion test and facked route
 route.post('/untitled_data', async (req, res) => {
-    const { lname, fname, email, matricule, niveau} = req.body
-    const newUser = new User({
-        lname, fname, email, matricule, niveau
-    })
-    newUser.save()
-    res.status(201).json({result : "Data created"})
+    try{
+        const { lname, fname, email, matricule, niveau} = req.body
+        console.log(req.body.length)
+
+        for (i in req.body.length) {
+            const newUser = new User({
+                lname: req.body[i].lname, 
+                fname: req.body[i].fname, 
+                email: req.body[i].email, 
+                matricule: req.body[i].matricule, 
+                niveau: req.body[i].niveau
+            })
+            newUser.save()
+        }
+        res.status(201).json({result : "Data created"})
+
+    }catch(e) {
+        console.log(e)
+        res.status(400).end()
+    }
 })
 
 
