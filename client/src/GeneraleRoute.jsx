@@ -27,21 +27,6 @@ function GeneraleRoute() {
           <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
 
 
-<<<<<<< HEAD
-          <Route path='/profile' element={<Profile/>}/> 
-          <Route path = '/challenge' element={<Challenge/>}>
-            <Route path=''element={<ChallengeFeed/>} index={true}/>
-            <Route path='challenge/:id' element={<ChallengePart/>}/>
-          </Route>
-          <Route path='/activity' element={<Activity/>}/>
-
-          <Route path='/forum' element={<Forum/>}>
-                <Route path=''element={<ForumFeed/>} index={true}/>
-                <Route path='question/:id' element={<Question/>}/>
-                <Route path='ask' element={<AskedQuestion/>}/>
-          </Route>
-        </Route>
-=======
           {
             connection && (
               <Route path='/' element={<Root/>}>
@@ -64,7 +49,6 @@ function GeneraleRoute() {
             )
           }
 
->>>>>>> origin/master
          
 
     </Routes>
