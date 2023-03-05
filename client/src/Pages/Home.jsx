@@ -147,9 +147,9 @@ function Home() {
                       <Avatar  src={userIcon} />
                     </div>
                     <div className="w-[60%]">
-                      <input type='password' name='password' 
-                        id='password' className='border border-none   
-                          text-sm text-[#868686] bg-[#ffffff21] w-[100%] h-[4vh] rounded-full focus:outline-none pl-5'
+                      <input type='texte'
+                         className='border border-none   
+                          text-sm text-[#868686] bg-[#ffffff32] w-[100%] h-[4vh] rounded-full focus:outline-none pl-5'
                        placeholder='Taper pour rechercher..'
                       />
                     </div>

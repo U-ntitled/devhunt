@@ -4,8 +4,10 @@ import MessageIcon from '../Image/message.svg'
 import userIcon from '../Image/user.svg'
 import NotificationIcon from '../Image/noti.svg'
 import { Avatar } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 function NavBar() {
+    const navigate = useNavigate()
   return (
     <div className=' sticky flex justify-between items-center w-[100%] px-12 pt-6'>
 
@@ -26,7 +28,9 @@ function NavBar() {
             <div className="text-[#01CF35]">
                 <h2 className=''>Home</h2>
             </div>
-            <div className="text-[#f2f2f2]">
+            <div 
+                 onClick={()=>navigate('/forum')}
+                 className="text-[#f2f2f2]">
                 <h2>Forum</h2>
             </div>
             <div  className="text-[#f2f2f2]">
