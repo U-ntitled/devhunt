@@ -23,11 +23,11 @@ function Confirmation() {
                 </div>
                 <div className=" w-[80%] flex justify-between items-center">
                         <div className=" cursor-pointer">
-                            <h2 className='text-[#00B8FF] text-2xl font-medium'>resend code ?</h2>
+                            <h2 className='text-[#00B8FF] text-2xl font-medium'>Renvoyer le code ?</h2>
                         </div>
                         <div className="flex justify-between items-center cursor-pointer">
                             <KeyboardBackspaceIcon sx={{color:'#f2f2f2',fontSize:'2em'}}/>
-                            <h2 className='text-[#f2f2f2] text-2xl font-medium'>Back</h2>
+                            <h2 className='text-[#f2f2f2] text-2xl font-medium'>Retour</h2>
                         </div>
                 </div>
         </div>

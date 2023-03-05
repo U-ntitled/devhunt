@@ -26,43 +26,43 @@ function Signup() {
             <div className="flex  items-center w-[100%]">
                <div className="flex mx-auto items-center w-[80%] justify-between">
                <div className="flex-col space-y-4 ">
-                    <h3 className='text-[#868686] text-xl'>Email</h3>
-                    <input type='email' name='email' 
-                        id='email' className='border border-none  w-[14vw] 
+                    <h3 className='text-[#868686] text-xl'>Nom</h3>
+                    <input type='text' name='fname' 
+                        id='fname' className='border border-none  w-[14vw] 
                           text-base text-[#7B7777] bg-[#F2F2F2] pl-5
                           h-[6vh] rounded-full focus:outline-none bg-none' 
-                          placeholder='Entrer votre addresse email...'
+                          placeholder='Entrer votre nom...'
                           />
                     </div>
                     <div className="flex-col space-y-4">
-                    <h3 className='text-[#868686] text-xl'>Email</h3>
-                    <input type='email' name='email' 
-                        id='email' className='border border-none  w-[14vw] 
+                    <h3 className='text-[#868686] text-xl'>Prenoms</h3>
+                    <input type='text' name='lname' 
+                        id='lname' className='border border-none  w-[14vw] 
                           text-base text-[#7B7777] bg-[#F2F2F2] pl-5
                           h-[6vh] rounded-full focus:outline-none bg-none' 
-                          placeholder='Entrer votre addresse email...'
+                          placeholder='Entrer votre prenoms...'
                           />
                     </div>
                 </div>     
             </div>
             <div className=" flex justify-center items-center flex-col space-y-4 w-[100%]">
                 <div className="flex justify-start w-[80%]">
-                    <h3 className='text-[#868686] text-xl- text-start'>Mot de passe</h3>
+                    <h3 className='text-[#868686] text-xl- text-start'>Email</h3>
                 </div>
-                 <input type='password' name='password' 
-                 id='password' className='border border-none  w-[80%] 
+                 <input type='email' name='email' 
+                 id='email' className='border border-none  w-[80%] 
                    text-base text-[#7B7777] bg-[#F2F2F2] h-[6vh] rounded-full focus:outline-none bg-none pl-5'
-                   placeholder='Entrer votre mot de passe...'
+                   placeholder='Entrer votre addresse email...'
                  />
              </div>
              <div className=" flex flex-col space-y-4 items-center justify-center w-[100%]">
                 <div className="flex justify-start w-[80%]">
-                    <h3 className='text-[#868686] text-xl text-start'>Mot de passe</h3>
+                    <h3 className='text-[#868686] text-xl text-start'>No Matricule</h3>
                 </div>
-                 <input type='password' name='password' 
-                 id='password' className='border border-none  w-[80%] 
+                 <input type='text' name='matricule' 
+                 id='matricule' className='border border-none  w-[80%] 
                    text-base text-[#7B7777] bg-[#F2F2F2] h-[6vh] rounded-full focus:outline-none bg-none pl-5'
-                   placeholder='Entrer votre mot de passe...'
+                   placeholder='Entrer votre No Matricule...'
                 />
              </div>
             <div className="w-[100%] flex justify-center items-center">

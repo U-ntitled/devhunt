@@ -102,6 +102,6 @@ function Filter({visible}) {
     </motion.div>
     
   )
-}
+ }
 
 export default Filter

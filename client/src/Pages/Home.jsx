@@ -54,15 +54,15 @@ function Home() {
   const topView = [{
     tag: '#IA',
     username: "John Doe",
-    numberView: '1.2N  views'
+    numberView: '1.2K  vu'
   },{
     tag: '#IA',
     username: "John Doe",
-    numberView: '1.2N  views'
+    numberView: '1.2K  vu'
   },{
     tag: '#IA',
     username: "John Doe",
-    numberView: '1.2N  views'
+    numberView: '1.2K  vu'
   }
 ]
   return (
@@ -85,7 +85,7 @@ function Home() {
                   view &&  (
                     <>
                     <div className="text-[#f2f2f2] w-[75%] mt-5 mx-auto uppercase  flex justify-between items-center">
-                      <div className=""><span >Topics</span></div>
+                      <div className=""><span >Sujets</span></div>
                       <div className=""><span>-</span></div>
                     </div>
                     <motion.div 
@@ -136,7 +136,7 @@ function Home() {
                     <img src={ExploreIcon} alt=''/>
                   </div>
                   <div className="text-white font-medium">
-                    <h2>Setting</h2>
+                    <h2>Parametres</h2>
                   </div>
             </div>
         </div>
@@ -203,12 +203,12 @@ function Home() {
                       <div className="text-[#f2f2f2] p-5">
                          <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor 
                           do amet sint. Velit officia consequat duis enim velit mollit.
-                           Exercitation veniam consequat sunt nostrud amet.. {!more && <span onClick={HadleClickShowMore} className='cursor-pointer text-[#01CF35]'>see more</span>}</p>
+                           Exercitation veniam consequat sunt nostrud amet.. {!more && <span onClick={HadleClickShowMore} className='cursor-pointer text-[#01CF35]'>voir plus</span>}</p>
                            {
                             more && (
                               <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor 
                           do amet sint. Velit officia consequat duis enim velit mollit.
-                           Exercitation veniam consequat sunt nostrud amet.. <span onClick={HadleClickShowMore} className='cursor-pointer text-[#01CF35]'>see less</span></p>
+                           Exercitation veniam consequat sunt nostrud amet.. <span onClick={HadleClickShowMore} className='cursor-pointer text-[#01CF35]'>voir moins</span></p>
                             )
                            }
                       </div>
@@ -245,7 +245,7 @@ function Home() {
                                  </div>
                               </div>
                               <div key={key + 10} className="cursor-pointer">
-                                <span className='text-[#00B8FF]'>Views</span>
+                                <span className='text-[#00B8FF]'>Voir</span>
                               </div>
                             </div>
                           )
@@ -270,7 +270,7 @@ function Home() {
                                  </div>
                               </div>
                               <div key={key + 10} className="cursor-pointer">
-                                <span className='text-[#00B8FF]'>Views</span>
+                                <span className='text-[#00B8FF]'>Voir</span>
                               </div>
                             </div>
                           )

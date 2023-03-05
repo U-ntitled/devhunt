@@ -26,7 +26,7 @@ function NavBar() {
 
         <div className="w-[30%] flex justify-between items-center">
             <div className="text-[#01CF35]">
-                <h2 className=''>Home</h2>
+                <h2 className=''>Accueil</h2>
             </div>
             <div 
                  onClick={()=>navigate('/forum')}
