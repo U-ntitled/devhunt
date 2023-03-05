@@ -25,66 +25,52 @@ import MyContext from './Context'
 
 function GeneraleRoute() {
   const {connection} = useContext(MyContext)
+  console.log(connection)
   return (
     <Routes>
          
-          <Route path='/login' element={<Login/>}/>       
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/confirmation' element={<Confirmation/>}/> 
-          <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
-
-          <Route path='/' element={<Root/>}>
-                <Route path='' element={<Home/>} index={true} />
-
-                <Route path='/profile' element={<Profile/>}/> 
-                <Route path = '/challenge' element={<Challenge/>}>
-                      <Route path=''element={<ChallengeFeed/>} index={true}/>
-                      <Route path=':id' element={<ChallengePart/>}/>
-                </Route>
-                <Route path='/activity' element={<Activity/>}/>
-
-                <Route path='/forum' element={<Forum/>}>
-                      <Route path=''element={<ForumFeed/>} index={true}/>
-                      <Route path='question/:id' element={<Question/>}/>
-                      <Route path='ask' element={<AskedQuestion/>}/>
-                </Route>
-          <Route path='/profile' element={<Profile/>}/> 
-          <Route path = '/challenge' element={<Challenge/>}>
-            <Route path=''element={<ChallengeFeed/>} index={true}/>
-            <Route path='challenge/:id' element={<ChallengePart/>}/>
-          </Route>
-          <Route path='/dashboard' element={<Dashboard/>}>
-                      <Route path='' element={<Principale/>} index={true}/>
-                      <Route path='Notification' element={<Notifiaction/>}/>
-                      <Route path="Post" element={<Post/>}/>
-                      <Route path="Settings" element={<Settings/>}/>
-                      <Route path='user' element={<User/>}/>
-          </Route>
-
-        </Route>
-
           {
-            connection && (
+            connection ? (
+              <>
               <Route path='/' element={<Root/>}>
-              <Route path='' element={<Home/>} index={true} />
-    
+                    <Route path='' element={<Home/>} index={true} />
+
+                    <Route path='/profile' element={<Profile/>}/> 
+                    <Route path = '/challenge' element={<Challenge/>}>
+                          <Route path=''element={<ChallengeFeed/>} index={true}/>
+                          <Route path=':id' element={<ChallengePart/>}/>
+                    </Route>
+                    <Route path='/activity' element={<Activity/>}/>
+
+                    <Route path='/forum' element={<Forum/>}>
+                          <Route path=''element={<ForumFeed/>} index={true}/>
+                          <Route path='question/:id' element={<Question/>}/>
+                          <Route path='ask' element={<AskedQuestion/>}/>
+                    </Route>
+                </Route>
+
               <Route path='/profile' element={<Profile/>}/> 
               <Route path = '/challenge' element={<Challenge/>}>
                 <Route path=''element={<ChallengeFeed/>} index={true}/>
-                <Route path=':id' element={<ChallengePart/>}/>
-    
+                <Route path='challenge/:id' element={<ChallengePart/>}/>
               </Route>
-              <Route path='/activity' element={<Activity/>}/>
-    
-              <Route path='/forum' element={<Forum/>}>
-                    <Route path=''element={<ForumFeed/>} index={true}/>
-                    <Route path='question/:id' element={<Question/>}/>
-                    <Route path='ask' element={<AskedQuestion/>}/>
+              <Route path='/dashboard' element={<Dashboard/>}>
+                          <Route path='' element={<Principale/>} index={true}/>
+                          <Route path='Notification' element={<Notifiaction/>}/>
+                          <Route path="Post" element={<Post/>}/>
+                          <Route path="Settings" element={<Settings/>}/>
+                          <Route path='user' element={<User/>}/>
               </Route>
-            </Route>
+              </>
+            ):(<>
+              <Route path='/login' element={<Login/>}/>       
+              <Route path='/signup' element={<Signup/>}/>
+              <Route path='/confirmation' element={<Confirmation/>}/> 
+              <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
+              </>  
             )
           }
-
+         
 
     </Routes>
   )
