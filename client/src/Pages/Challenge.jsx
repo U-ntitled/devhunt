@@ -4,8 +4,10 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import qIcon from '../Image/Q.png';
 import partIcon from '../Image/Vector.png'
+import ChallengeFilter from '../Components/ChallengeFilter'
 
 function Challenge() {
+  const [visible, setVisible] = useState(false)
   const [showTopics, setShowTopics] = useState(false);
   const HandleClickTopics = () =>{
     setShowTopics(ancien=>!ancien);
@@ -15,11 +17,13 @@ function Challenge() {
         <div className='w-[25%] flex justify-center px-10  ml-20'>
          <div className='w-full flex flex-col items-center m-2'>
               <div className='bg-[#ffffff16] w-full rounded-lg'>
-                    <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-6 w-full'>
+                    <div
+                        onClick={() => setVisible(!visible)}
+                        className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-6 w-full'>
                         <img src={FiltreIcon} alt="Question icon"/>
-                        <span className='text-lg font-bold text-white ml-8 '>Filter</span>
+                        <span className='text-lg font-bold text-white ml-8 '>Filtrer</span>
                     </div>
-                 {/* <Filter/> */}
+                 <ChallengeFilter visible={visible}/>
               </div>
               <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
                    <img src={qIcon} alt="Question icon"/>
@@ -31,6 +35,7 @@ function Challenge() {
               </div>
          </div>
       </div>
+      {/* </div> */}
     </div>
   )
 }
