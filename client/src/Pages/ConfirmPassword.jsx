@@ -6,27 +6,29 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios'
 
-function Login() {
-    const [email ,setEmail] = useState('')
-    const HandleEmailChange = (e)=> {
-            setEmail(e.target.value)
+function ConfirmPassword() {
+    const [confirmation ,setConfiramtion] = useState('')
+    const HandleConfirmationChange = (e)=> {
+            setConfiramtion(e.target.value)
     }
     const [password ,setPassword] = useState('')
     const HandlePasswordChange = (e)=> {
             setPassword(e.target.value)
     }
     const navigate = useNavigate()
+    const values = {
+        password,
+        confirmation
+    }
     const handleFormSubmit = ()=>{
-        const values ={email,password}
-        const login = axios.post('http://localhost:8000/api/routes/auth/login',values)
-        if(login.status === 200){
+        const verifyPassword = axios.put('http://localhost:8000/api/routes/auth/updatePassword',values)
+        if(verifyPassword.status === 200 ){
             navigate('/')
         }
       }
   return (
-    <div className='bg-[#001935] h-[100vh] flex  justify-center items-center '>
-             
-                    <motion.div 
+    <div className='bg-[#001935] h-[100vh] flex  justify-center items-center '>               
+                    <motion.form 
                      initial={
                       {
                        opacity: 0,
@@ -42,22 +44,12 @@ function Login() {
                             duration: 1.5
                           }
                       }  
-                    className=" flex-col space-y-8"> 
+                     className=" flex-col space-y-8"> 
                               <div className="flex justify-center items-center">
                                   <img src={Logo} alt='logo'/>
                               </div>
                               <div className="flex-col space-y-4">
                                   <h3 className='text-[#868686] text-xl'>Email</h3>
-                                  <input type='email' name='email' value={email}
-                                   id='email' className='border border-none  w-[100%] 
-                                    text-center text-xl text-[#7B7777] bg-[#F2F2F2]
-                                     h-[6vh] rounded-full focus:outline-none bg-none' 
-                                     placeholder='Entrer votre addresse email...'
-                                     onChange={HandleEmailChange}
-                                     />
-                              </div>
-                              <div className="flex-col space-y-4">
-                                  <h3 className='text-[#868686] text-xl'>Mot de passe</h3>
                                   <input type='password' name='password' value={password} 
                                   id='password' className='border border-none  w-[100%]
                                    text-center text-xl text-[#7B7777] bg-[#F2F2F2] h-[6vh] rounded-full focus:outline-none bg-none'
@@ -65,23 +57,26 @@ function Login() {
                                     onChange={HandlePasswordChange}
                                     
                                     />
+
                               </div>
-                              <div className="flex justify-between items-center">
-                                  <div className=" flex justify-between items-center">
-                                          <input type="checkbox"  className='h-5 border border-none outline-none ' name="remember" id="remember" />
-                                          <label htmlFor="remember" className='text-[#f2f2f2]'> Se souvenir de moi </label>
-                                  </div>
-                                  <div className="">
-                                        <h6 className='text-[#00B8FF]'> Mot de passe oublier ?</h6>
-                                  </div>
+                              <div className="flex-col space-y-4">
+                                  <h3 className='text-[#868686] text-xl'>Mot de passe</h3>
+                                  <input type='email' name='email' value={confirmation}
+                                   id='email' className='border border-none  w-[100%] 
+                                    text-center text-xl text-[#7B7777] bg-[#F2F2F2]
+                                     h-[6vh] rounded-full focus:outline-none bg-none' 
+                                     placeholder='Entrer votre addresse email...'
+                                     onChange={HandleConfirmationChange}
+                                     />
                               </div>
                               <div >
                                   <button onClick={handleFormSubmit} className="bg-[#00CF35] w-[100%] h-[6vh] flex justify-center items-center rounded-full text-[#f2f2f2] text-xl" >Se connecter</button>
                               </div>
-                    </motion.div>
+                    </motion.form>
     </div>
   )
 }
 
-export default Login
+export default ConfirmPassword
+
 
