@@ -14,6 +14,7 @@ import Root from './Pages/Root'
 import Signup from './Pages/Signup'
 import ChallengeFeed from './Components/ChallengeFeed'
 import ChallengePart from './Components/ChallengePart'
+import ConfirmPassword from './Pages/ConfirmPassword'
 
 function GeneraleRoute() {
   return (
@@ -21,6 +22,7 @@ function GeneraleRoute() {
           <Route path='/login' element={<Login/>}/>       
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/confirmation' element={<Confirmation/>}/> 
+          <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
 
         <Route path='/' element={<Root/>}>
           <Route path='' element={<Home/>} index={true} />
