@@ -12,7 +12,7 @@ import Solved from '../Image/true.svg'
 function Activity() {
   const result = [
     {
-    username: 'Riry Nomenjanahary',
+    username: 'Rir Nomenjanahary',
     status: "Resolue",
     desc: "UI/UX Design Thinking philosopy",
     nbrCommments: '3 commmentaires',
