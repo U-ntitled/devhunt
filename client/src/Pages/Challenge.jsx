@@ -18,7 +18,7 @@ function Challenge() {
 
   return (
     <div className='flex justify-between w-[100%] h-[100%] mt-32'>
-        <div className='w-[25%] flex justify-center px-10  ml-20'>
+        <div className='w-[35%] flex justify-center px-10  ml-20'>
           <div className='w-full flex flex-col items-center m-2'>
               <div className='bg-[#ffffff16] w-full rounded-lg'>
                     <div

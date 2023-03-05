@@ -12,6 +12,8 @@ import Signup from './Pages/Signup'
 import Profile from './Pages/Profile'
 import Challenge from './Pages/Challenge'
 import Activity from './Pages/Activity'
+import ChallengeFeed from './Components/ChallengeFeed'
+import ChallengePart from './Components/ChallengePart'
 
 function GeneraleRoute() {
   return (
@@ -24,7 +26,11 @@ function GeneraleRoute() {
           <Route path='' element={<Home/>} index={true} />
 
           <Route path='/profile' element={<Profile/>}/> 
-          <Route path = '/challenge' element={<Challenge/>}/>
+          <Route path = '/challenge' element={<Challenge/>}>
+            <Route path=''element={<ChallengeFeed/>} index={true}/>
+            <Route path='challenge/:id' element={<ChallengePart/>}/>
+
+          </Route>
           <Route path='/activity' element={<Activity/>}/>
 
           <Route path='/forum' element={<Forum/>}>
