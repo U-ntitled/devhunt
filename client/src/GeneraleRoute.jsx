@@ -54,7 +54,7 @@ function GeneraleRoute() {
                 <Route path=''element={<ChallengeFeed/>} index={true}/>
                 <Route path='challenge/:id' element={<ChallengePart/>}/>
               </Route>
-              <Route path='/dashboard' element={connection ? <Dashboard/> : <Navigate to="/login/>"}>
+              <Route path='/dashboard' element={connection ? <Dashboard/> : <Navigate to="/login"/>}>
                           <Route path='' element={<Principale/>} index={true}/>
                           <Route path='Notification' element={<Notifiaction/>}/>
                           <Route path="Post" element={<Post/>}/>
