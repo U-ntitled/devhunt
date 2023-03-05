@@ -24,7 +24,7 @@ import User from './Pages/Dashboard/User'
 import MyContext from './Context'
 
 function GeneraleRoute() {
-  const {connection} = useContext(MyContext)
+   const {connection} = useContext(MyContext)
   console.log(connection)
   return (
     <Routes>
@@ -32,7 +32,7 @@ function GeneraleRoute() {
 
 
           {
-            connection ? (
+            true? (
               <>
               <Route path='/' element={<Root/>}>
                     <Route path='' element={<Home/>} index={true} />
