@@ -81,7 +81,6 @@ route.post("/create-post", async (request, response) => {
         response.status(400)
         .json({data: "Error while creating form. Better check your connection."})
     }
-    }
 })
 
 
