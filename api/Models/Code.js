@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const CodeSchema = mongoose.Schema({
    id: {type:String,require:true,unique:true},
-   codefa:{type:String,require:true}
+   codetfa:{type:String,require:true},
+   test: {type:String,require:true,unique:true},
 },{
     timestamps: true
 }

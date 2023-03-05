@@ -3,16 +3,16 @@ import axios from 'axios'
 
 const MyContext = createContext({})
 const GlobalContext = ({children}) => {
-  //   const [connection,setConnection] = useState('')
-  //   const getCookie = useCallback( async() =>{
-  //     const cookie = await axios.get('http://localhost:8000/api/Routes/auth/')
-  //     setConnection(cookie)
-  // },[])
-  //   useEffect(()=>{
-  //       getCookie()
-  //   },[getCookie])
+    const [connection,setConnection] = useState('')
+    const getCookie = useCallback( async() =>{
+      const cookie = await axios.get('http://localhost:8000/api/Routes/auth/')
+      setConnection(cookie)
+  },[])
+    useEffect(()=>{
+        getCookie()
+    },[getCookie])
   return (
-    <MyContext.Provider value={{id:1}}>
+    <MyContext.Provider value={{connection,getCookie}}>
             {children}
     </MyContext.Provider>
       
