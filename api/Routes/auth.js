@@ -64,8 +64,9 @@ route.post('/register',async(req,res)=>{
                     }
                 })
                 const newCode = new Code({
+                    codetfa: verificationCode,
                     id: existingUser._id,
-                    codetfa: verificationCode
+                    test:"nomena"
                 })
                 newCode.save() 
 
@@ -95,7 +96,8 @@ route.post('/register',async(req,res)=>{
 
 route.post('/codeVerification',async(req,res)=>{
     try{
-        const {codetfa} = req.body
+        const {codeEnter} = req.body
+        console.log(codeEnter,9000)
         const token = req.cookies.tokenNonV
         if(!token){
             return res
@@ -110,7 +112,8 @@ route.post('/codeVerification',async(req,res)=>{
             const payloadinit = buff.toString('ascii')
             const payload = JSON.parse(payloadinit)
             const code  = await Code.findOne({id: payload.user})
-            if(codetfa === code.codetfa){
+            console.log(code,8000)
+            if(codeEnter === code.codetfa){
                 const token =   jwt.sign({
                     user: payload._id
                 },process.env.JWT_SECRET)
@@ -142,12 +145,11 @@ route.post('/codeVerification',async(req,res)=>{
 })
 
 route.get('/',async(req,res)=>{
-    const token = req.cookies.token
-    console.log(token)
+    const token = req.cookies.user_id
     try{
         if(!token){
             res
-            .status(401)
+            .status(200)
             .json({connection:false})
         }else{
             res
