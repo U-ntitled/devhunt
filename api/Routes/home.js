@@ -5,6 +5,15 @@ const uPost = require('../Models/UserPost');
 const Topic = require("../Models/Topics")
 
 
+// API test
+route.get("/test", (req, res) => {
+    User.find().sort({created_at : -1})
+    .then((result) => {
+        res.status(200).json(result)
+    })
+})
+
+
 // SENDING POST
 route.get('/', async (req, res)=>{
     try{
@@ -217,16 +226,15 @@ route.delete('/delete/:id', async (req, res) =>{
     }
 })
 
-route.post('/untitled_data', async (res, req) => {
+
+// Insertion test
+route.post('/untitled_data', async (req, res) => {
+    const { lname, fname, email, matricule, niveau} = req.body
     const newUser = new User({
-        lname: "Antonino Iraky Ny Avo",
-        fname:"RAZAFIMAMY",
-        email: "ninohantonio@gmail.com",
-        password: "",
-        matricule: "1173H-F",
-        niveau: "L2",
+        lname, fname, email, matricule, niveau
     })
     newUser.save()
+    res.status(201).json({result : "Data created"})
 })
 
 

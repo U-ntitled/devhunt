@@ -15,6 +15,7 @@ const cookieParser  = require('cookie-parser')
 const authRouter = require('./Routes/auth')
 const homePost = require('./Routes/home')
 const profileRouter = require("./Routes/profile")
+const actionProcessing = require("./Routes/dataProcessing")
 
 
 dotenv.config()
@@ -50,6 +51,9 @@ app.use('/api/Routes/home/', homePost);
 /* Utilisation de route profile dans Routes 
 Mise en place des api */
 app.use("api/Routes/profile/", profileRouter)
+
+/* Gestion des actions non rendu dans l'ui */
+app.use("api/Routes/action/",actionProcessing)
 
 //fonction de connection mongodb
 async function main(){
