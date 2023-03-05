@@ -288,8 +288,8 @@ function Home() {
                         })
                       }
                 </div>
-              <div className="flex justify-start w-[100%] mt-16">
-                <h1 className='text-[#f2f2f2] text-2xl text-start'> Recommandees par d'autres utilisateurs</h1>
+              <div className="flex justify-start w-[100%] mt-5">
+                <h1 className='text-[#f2f2f2] text-2xl font-bold text-start '> Recommandé par d'autre personne</h1>
               </div>
               <div className="">
                       {

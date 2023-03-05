@@ -29,7 +29,11 @@ function GeneraleRoute() {
   return (
     <Routes>
          
-              
+
+
+          {
+            connection ? (
+              <>
               <Route path='/' element={<Root/>}>
                     <Route path='' element={<Home/>} index={true} />
 
@@ -59,13 +63,15 @@ function GeneraleRoute() {
                           <Route path="Settings" element={<Settings/>}/>
                           <Route path='user' element={<User/>}/>
               </Route>
-              <Route path='/login' element={<Login/>}/>       
-              <Route path='/signup' element={<Signup/>}/>
-              <Route path='/confirmation' element={<Confirmation/>}/> 
-              <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
-              
-            
-          
+              </>
+            ):(<>
+                <Route path='/login' element={<Login/>}/>       
+                <Route path='/signup' element={<Signup/>}/>
+                <Route path='/confirmation' element={<Confirmation/>}/> 
+                <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
+              </>  
+            )
+          }
          
 
     </Routes>
