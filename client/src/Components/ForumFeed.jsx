@@ -10,7 +10,7 @@ function ForumFeed() {
            <div className='flex justify-end items-center'>
                 <AskButton/>
            </div>
-           <div className='w-[1/2] h-[700px] overflow-y-auto flex flex-col '>
+           <div className='w-[786px] h-[720px] overflow-y-auto flex flex-col '>
                  <QuestionCard/>
                  <QuestionCard/>
                  <QuestionCard/>
