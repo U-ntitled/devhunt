@@ -4,7 +4,7 @@ import MessageIcon from '../Image/message.svg'
 import userIcon from '../Image/user.svg'
 import NotificationIcon from '../Image/noti.svg'
 import { Avatar } from '@mui/material'
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const activeLink = {
      color:"#00CF35"

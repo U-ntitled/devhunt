@@ -227,7 +227,7 @@ function Home() {
         </div>
         <div className="w-[20%] flex  flex-col space-y-2 items-center mx-6  ">
            <div className="flex justify-start w-[100%]">
-            <h1 className='text-[#f2f2f2] text-2xl text-start '> Plus visitees</h1>
+            <h1 className='text-[#f2f2f2] text-2xl font-bold text-start '>Le plus visité</h1>
            </div>
               <div className="w-[100%] mx-6 ">
                 <div className="">
@@ -253,7 +253,7 @@ function Home() {
                       }
                 </div>
               <div className="flex justify-start w-[100%] mt-5">
-                <h1 className='text-[#f2f2f2] text-2xl text-start '> Plus visitees</h1>
+                <h1 className='text-[#f2f2f2] text-2xl font-bold text-start '> Recommandé par d'autre personne</h1>
               </div>
               <div className="">
                       {

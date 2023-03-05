@@ -50,6 +50,7 @@ function Question() {
                           <span className='text-gray-700] py-2 hover:text-[#00B8FF]'>
                                 12 commentaires
                           </span>
+                          <span>Reply</span>
                           <div className='flex justify-center items-center'>
                                 <img src={checkIcon} alt="checked icon"/>
                                 <span className='text-[#00CF35]'>Solved</span>
