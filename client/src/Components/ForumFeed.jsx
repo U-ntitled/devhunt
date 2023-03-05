@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import QuestionCard from './QuestionCard'
 import AskButton from './AskButton'
+import axios from 'axios'
 
 function ForumFeed() {
   
@@ -11,11 +12,7 @@ function ForumFeed() {
                 <AskButton/>
            </div>
            <div className='w-[786px] h-[720px] overflow-y-auto flex flex-col '>
-                 <QuestionCard/>
-                 <QuestionCard/>
-                 <QuestionCard/>
-                 <QuestionCard/>
-                 <QuestionCard/>
+                      <QuestionCard  />
            </div>
     </div>
   )
