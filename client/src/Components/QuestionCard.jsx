@@ -10,7 +10,7 @@ function QuestionCard() {
     <div 
 
      onClick={()=> navigate('question/:id')}
-     className='w-full bg-[#0d0d0d] py-3 px-10 hover:opacity-80 cursor-pointer'>
+     className='w-full bg-[#0d0d0d] py-3 px-10 hover:opacity-80 cursor-pointer mb-2 shadow-sm shadow-gray-600 rounded-md'>
          <div className=' flex items-center justify-start relative'>
                     <div className='w-[120px]'>
                         <img src={photo} alt='user profile'/>

@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import backIcon from '../Image/Back.png'
 import AskButton from './AskButton'
 import photo from '../Image/profile.png'
 import checkIcon from "../Image/Checked.png"
 import likeIcon from "../Image/like2.png"
 import { useNavigate } from 'react-router-dom'
-
+import { Rating } from '@mui/material'
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import ReplyIcon from '@mui/icons-material/Reply';
 
 function Question() {
   const navigate = useNavigate()
-   
+  const [value, setValue] = useState(2);
+  const [like, toggleLike] = useState(false)
+  const HandleClickLike = ()=>{
+    toggleLike(ancien=>!ancien)
+  }   
+  const [dislike, toggleDisLike] = useState(false)
+  const HandleClickDisLike = ()=>{
+    toggleDisLike(ancien=>!ancien)
+  }   
   return (
     <div className='w-[60%] px-3 py-3 pb-10'>
          <div className='flex justify-between items-center'>
@@ -23,7 +36,7 @@ function Question() {
              </div>
              <AskButton/>
          </div>
-         <div className='bg-white px-10 py-3  overflow-y '>
+         <div className='bg-[#fff] px-10 py-3  overflow-y '>
             <div className=' flex items-center justify-start relative mb-3'>
                         <div className='w-[120px]'>
                             <img src={photo} alt='user profile'/>
@@ -52,7 +65,7 @@ function Question() {
                           </span>
                           <div className='flex justify-center items-center'>
                                 <img src={checkIcon} alt="checked icon"/>
-                                <span className='text-[#00CF35]'>Solved</span>
+                                <span className='text-[#00CF35]'>Resolu</span>
                           </div>
                      </div>
                      
@@ -80,13 +93,18 @@ function Question() {
                                         
                                     </div>
                                           <div className='flex justify-around items-center'>
-                                                <span className='w-6 h-6 text-[#f2f2f2]'>
-                                                  <img src={likeIcon} alt="like icon"/>
+                                                <span className='cursor-pointer'>
+                                                  <ReplyIcon sx={{marginRight:'.4em'}}/>
+                                                  Reply
                                                 </span>
-                                              
-                                                <span>Reply</span>
-                                                <span>Staring</span>
-                                              
+                                                <Rating
+                                                  name="simple-controlled"
+                                                  value={value}
+                                                  onChange={(event, newValue) => {
+                                                    setValue(newValue);
+                                                    console.log(newValue);
+                                                  }}
+                                                />
                                           </div>
                             </div>
                             <div>

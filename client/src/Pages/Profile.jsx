@@ -6,8 +6,10 @@ import UserProfile from '../Image/userpro.svg'
 import Activity from '../Image/activity.svg'
 import { Avatar } from '@mui/material';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+  const navigate = useNavigate()
   return (
     <div className='w-[100%]  mt-16'>
         <div className="flex justify-between w-[100%] ">
@@ -16,7 +18,7 @@ function Profile() {
                       <div className="cursor-pointer mr-2" >
                         <AccountCircleOutlinedIcon sx={{color: '#00B8FF', fontSize:'2em'}}/>
                       </div>
-                      <div className="text-white font-medium">
+                      <div className="text-white font-medium" onClick={()=> navigate('/profile')}>
                         <h2> Profile</h2>
                       </div>
                 </div>
@@ -24,7 +26,7 @@ function Profile() {
                       <div className="cursor-pointer mr-2 " >
                         <img src={Activity} alt=''/>
                       </div>
-                      <div className="text-white font-medium">
+                      <div className="text-white font-medium" onClick={()=> navigate('/activity')}>
                         <h2>Mes activites</h2>
                       </div>
                 </div>

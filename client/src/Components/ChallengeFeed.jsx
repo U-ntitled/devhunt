@@ -3,7 +3,7 @@ import ChallengeCard from './ChallengeCard'
 
 function ForumFeed() {
   return (    
-  <div className='w-[90%] overflow-y-auto'>
+  <div className='w-[90%]'>
         <ChallengeCard/>
         <ChallengeCard/>
         <ChallengeCard/>

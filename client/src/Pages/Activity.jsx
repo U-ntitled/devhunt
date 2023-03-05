@@ -9,8 +9,10 @@ import userIcon from '../Image/user.svg'
 import Navig from '../Image/navigate.svg'
 import Solved from '../Image/true.svg'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useNavigate } from 'react-router-dom';
 
 function Activity() {
+  const navigate = useNavigate()
   const result = [
     {
     username: 'Rir Nomenjanahary',
@@ -53,7 +55,7 @@ function Activity() {
                   <div className="cursor-pointer mr-2 " >
                     <AccountCircleOutlinedIcon sx={{color:'#00B8FF', fontSize:'2em'}}/>
                   </div>
-                  <div className="text-white font-medium">
+                  <div className="text-white font-medium" onClick={()=> navigate('/profile')}>
                     <h2>Profile</h2>
                   </div>
             </div>
@@ -61,7 +63,7 @@ function Activity() {
                   <div className="cursor-pointer mr-2 " >
                     <img src={ActivityIcon} alt=''/>
                   </div>
-                  <div className="text-white font-medium">
+                  <div className="text-white font-medium" onClick={()=> navigate('/activity')}>
                     <h2>Mes activites</h2>
                   </div>
             </div>
@@ -75,7 +77,7 @@ function Activity() {
             </div>
             <div className="cursor-pointer flex mx-auto mt-5 justify-center items-center  w-[50%] h-14 ">
                 <LogoutIcon sx={{color:'#00B8FF'}} />
-                <h2 className='ml-2 text-xl font-semibold text-[#f2f2f2]'>Se deconnecter</h2>
+                <h2 className='ml-2 text-xl font-semibold text-[#f2f2f2]'>Se Deconnecter</h2>
             </div>
         </div>
         <div className="flex flex-col  space-y-10 w-[60%] mx-12">

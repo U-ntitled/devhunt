@@ -54,14 +54,20 @@ function Home() {
   const topView = [{
     tag: '#IA',
     username: "John Doe",
+    title: "Reseau neuronal",
+    imgUrl: "../Images/user.svg",
     numberView: '1.2K  vu'
   },{
     tag: '#IA',
     username: "John Doe",
+    title: "Reseau neuronal",
+    imgUrl: "../Images/user.svg",
     numberView: '1.2K  vu'
   },{
     tag: '#IA',
     username: "John Doe",
+    title: "Reseau neuronal",
+    imgUrl: "../Images/user.svg",
     numberView: '1.2K  vu'
   }
 ]
@@ -234,14 +240,15 @@ function Home() {
                       {
                         topView.map((elem,key)=>{
                           return(
-                            <div className='bg-[#0D0D0DBB] p-6 mt-4 flex  justify-between items-center'>
-                              <div key={key + 3} className="w-[100%] flex flex-col space-y-3">
-                                  <div className="flex justify-between w-[60%]">
-                                      <span className='text-[#00CF35]' >{elem.tag}</span>
-                                      <h2 className='text-[#f2f2f2]'>{elem.username}</h2>
-                                  </div>
-                                 <div className="">
-                                  <span className='text-[#868686]'>{elem.numberView}</span>
+                            <div className='bg-[#0D0D0DBB] p-6 mt-4 flex shadow-sm shadow-gray-600 rounded-md justify-between items-center'>
+                              <div key={key + 3} className="w-[100%] flex flex-row space-x-1">
+                                  <div className="flex flex-col space-y-2">
+                                    <Avatar src={elem.imgUrl} alt="" />
+                                    <span className='text-[#00CF35] ml-6'>{elem.tag}</span>
+                                 </div>
+                                 <div className="flex flex-col space-y-6">
+                                    <h2 className='text-[#868686] '>{elem.username}</h2>
+                                    <h2 className='text-[#F2F2F2] ml-16'>{elem.title}</h2>
                                  </div>
                               </div>
                               <div key={key + 10} className="cursor-pointer">
@@ -252,21 +259,22 @@ function Home() {
                         })
                       }
                 </div>
-              <div className="flex justify-start w-[100%] mt-5">
-                <h1 className='text-[#f2f2f2] text-2xl text-start '> Plus visitees</h1>
+              <div className="flex justify-start w-[100%] mt-16">
+                <h1 className='text-[#f2f2f2] text-2xl text-start'> Recommandees par d'autres utilisateurs</h1>
               </div>
               <div className="">
                       {
                         topView.map((elem,key)=>{
                           return(
-                            <div className='bg-[#0D0D0DBB] p-6 mt-4 flex  justify-between items-center'>
-                              <div key={key + 3} className="w-[100%] flex flex-col space-y-3">
-                                  <div className="flex justify-between w-[60%]">
-                                      <span className='text-[#00CF35]' >{elem.tag}</span>
-                                      <h2 className='text-[#f2f2f2]'>{elem.username}</h2>
-                                  </div>
-                                 <div className="">
-                                  <span className='text-[#868686]'>{elem.numberView}</span>
+                            <div className='bg-[#0D0D0DBB] p-6 mt-4 shadow-sm shadow-gray-600 rounded-md flex  justify-between items-center'>
+                              <div key={key + 3} className="w-[100%] flex flex-row space-x-1">
+                                 <div className="flex flex-col space-y-2">
+                                    <Avatar src={elem.imgUrl} alt="" />
+                                    <span className='text-[#00CF35] ml-6'>{elem.tag}</span>
+                                 </div>
+                                 <div className="flex flex-col space-y-6">
+                                    <h2 className='text-[#868686] '>{elem.username}</h2>
+                                    <h2 className='text-[#F2F2F2] ml-16'>{elem.title}</h2>
                                  </div>
                               </div>
                               <div key={key + 10} className="cursor-pointer">
