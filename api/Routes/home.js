@@ -227,7 +227,7 @@ route.delete('/delete/:id', async (req, res) =>{
 })
 
 
-// Insertion test
+// Insertion test and facked route
 route.post('/untitled_data', async (req, res) => {
     try{
         const { lname, fname, email, matricule, niveau} = req.body
