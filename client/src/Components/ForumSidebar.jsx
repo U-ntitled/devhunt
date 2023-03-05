@@ -4,7 +4,7 @@ import filterIcon from '../Image/filter.png'
 import qIcon from '../Image/Q.png';
 import partIcon from '../Image/Vector.png'
 
-import Filter from './Filter'
+// import Filter from './Filter'
 
 const data =[
     {
@@ -39,7 +39,7 @@ function ForumSidebar() {
                         <img src={filterIcon} alt="Question icon"/>
                         <span className='text-lg font-bold text-white ml-8 '>Filter</span>
                     </div>
-                 <Filter/>
+                 {/* <Filter/> */}
               </div>
               <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
                    <img src={qIcon} alt="Question icon"/>
