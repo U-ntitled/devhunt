@@ -157,6 +157,7 @@ route.get('/visiter/post', async (req, res)=>{
    }
 })
 
+//Extraction des profils les plus visites
 route.get('/visiter/profil', async (req, res)=>{
     try{
             uPost.find({})
@@ -180,6 +181,8 @@ route.get('/visiter/profil', async (req, res)=>{
          res.status(401).end()
     }
 })
+
+//MIS A JOUR DE NOUVEAU POSTE
 
 route.put('/post-update/', async (req, res)=>{
     try{
@@ -212,6 +215,18 @@ route.delete('/delete/:id', async (req, res) =>{
         res.status(401)
         .end()
     }
+})
+
+route.post('/untitled_data', async (res, req) => {
+    const newUser = new User({
+        lname: "Antonino Iraky Ny Avo",
+        fname:"RAZAFIMAMY",
+        email: "ninohantonio@gmail.com",
+        password: "",
+        matricule: "1173H-F",
+        niveau: "L2",
+    })
+    newUser.save()
 })
 
 
