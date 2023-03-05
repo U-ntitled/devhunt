@@ -9,7 +9,7 @@ const UserSchema = mongoose.Schema({
     isAdmin: { type: Boolean, default: false },
     matricule: { type: String, require: true },
     niveau: { type: String, require: true },
-    // bacdge
+    // badge
     badge: { type: String },
     // restriction
     restriction: { type: Boolean, default: false },
