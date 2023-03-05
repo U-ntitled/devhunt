@@ -1,18 +1,18 @@
 
-import React, { useState } from 'react'
+import { StepContext } from '@mui/material';
+import React, { useContext, useState } from 'react'
+import MyContext from '../Context';
 import filterIcon from '../Image/filter.png'
 import qIcon from '../Image/Q.png';
 import partIcon from '../Image/Vector.png'
 import Filter from './Filter';
 
-
-
-
-
-
 function ForumSidebar() {
-
-  const [visible, setVisible] = useState(false)
+     const {getQuestsMy} = useContext(MyContext)
+     const [visible, setVisible] = useState(false)
+     const HandleClickMyQuest = () =>{
+          getQuestsMy()
+     }
   return (
     <div className='w-[550px] flex justify-center px-10  ml-20'>
          <div className='w-full flex flex-col items-center m-2'>
@@ -28,7 +28,7 @@ function ForumSidebar() {
               </div>
               <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
                    <img src={qIcon} alt="Question icon"/>
-                   <span className='text-lg font-bold text-white ml-8'>Mes questions</span>
+                   <span className='text-lg font-bold text-white ml-8 cursor-pointer' onClick={HandleClickMyQuest}>Mes questions</span>
               </div> 
               <div className='flex justify-start items-center bg-[#ffffff16] rounded-xl py-2 px-4 w-full mt-4'>
                    <img src={partIcon} alt="Question icon"/>
