@@ -98,6 +98,7 @@ route.post("/create-comment",async (req, res) => {
     
         uPost.findOne({topic : "topic"}).then((poste) => {
             poste.comments.push(Comment.id)
+            poste.num_comment += 1
             poste.save()
         })
         res.status(200).end()
@@ -136,6 +137,80 @@ route.get("/show-post",(req,res) => {
         console.log(e)
         response.status(400)
         .json({result:"Error while getting data, Please verify your connection"}).end()
+    }
+})
+
+
+//Les plus visites de post
+route.get('/visiter/post', async (req, res)=>{
+   try{
+       uPost.find({})
+       .sort({num_comment: -1})
+       .limit(3)
+    //    .select("")
+       .then((result)=> {
+            res.json(result)
+        })
+   }
+   catch(e){
+        res.status(401).end()
+   }
+})
+
+route.get('/visiter/profil', async (req, res)=>{
+    try{
+            uPost.find({})
+            .sort({num_comment: -1})
+            .limit(3)
+            .then((result)=> {
+                User.find({}).
+                where({id: result.owner})
+                .select("fname lname profilePicture")
+                .then((response) => {
+                    var data = {
+
+                        user: response
+                    }
+                    res.json(data)
+                })
+            })
+    }
+    
+    catch(e){
+         res.status(401).end()
+    }
+})
+
+route.put('/post-update/', async (req, res)=>{
+    try{
+        const {owner,description,images,state,topic,challenge_state,delay,num_comment,type} = req.body
+        let npost = await uPost.findOneAndUpdate({ id: req.body.post_id },
+         { owner: owner, description: description ,images: images, state: state, topic: topic, challenge_state: challenge_state, delay: delay, num_comment:num_comment, type : type}
+         , {new:true})
+        res
+
+        .status(200)
+        .json(npost)
+        .end()
+    }
+    catch(e){
+        console.log(e)
+        res.status(404).end()
+    }
+    
+})
+
+
+route.delete('/delete/:id', async (req, res) =>{
+    try{
+        uPost.findByIdAndRemove(req.params.id)
+        res
+        .status(204)
+        .end()
+    }
+    catch(e){
+        res.status(401)
+        .end()
     }
 })
 
