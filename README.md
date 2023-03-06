@@ -47,6 +47,7 @@ Type the following command while your current folder is _devhunt_
 For now, we have created a log in information without authentification security so that you can log in without email confirmation... 
 You can log in as _example@gmail.com_ and _password_ as password
 
+Note that we use mongodb so you must connect to the internet to access our database
 
 ## Motivation and goals
 
