@@ -9,7 +9,7 @@ route.get('/recently', async (req, res)=>{
     try{
         uPost.find({}).populate("comments")
         .sort({created_at: -1})
-        .select("description state topic type comments owner num_commet created_at")
+        .select("description state topic type comments owner num_comment created_at")
         .then((result)=>{
             res
             .status(200)

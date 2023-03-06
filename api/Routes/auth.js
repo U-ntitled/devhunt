@@ -65,8 +65,7 @@ route.post('/register',async(req,res)=>{
                 })
                 const newCode = new Code({
                     codetfa: verificationCode,
-                    id: existingUser._id,
-                    test:"nomena"
+                    id: existingUser._id
                 })
                 newCode.save() 
 
@@ -165,6 +164,11 @@ route.get('/',async(req,res)=>{
 route.post('/login', async(req,res)=>{
     try{
         const {email,password}= req.body
+        // if(email == 'example@gmail.com'){
+        //     return res
+        //     .status(200)
+        //     .json({success: 'success'})
+        // }
         if(!email || !password){
             return res
             .status(400)

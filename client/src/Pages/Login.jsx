@@ -16,10 +16,13 @@ function Login() {
             setPassword(e.target.value)
     }
     const navigate = useNavigate()
-    const handleFormSubmit = ()=>{
+    const handleFormSubmit = async ()=>{
         const values ={email,password}
-        const login = axios.post('http://localhost:8000/api/routes/auth/login',values)
+        // navigate('/')
+        // console.log(values)
+        const login =  await axios.post('http://localhost:8000/api/routes/auth/login',values)
         if(login.status === 200){
+            console.log(values)
             navigate('/')
         }
       }

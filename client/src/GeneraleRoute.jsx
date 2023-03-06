@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes ,Navigate} from 'react-router-dom'
 import Activity from './Pages/Activity'     
 import Challenge from './Pages/Challenge'
 import AskedQuestion from './Components/AskedQuestion'
@@ -24,17 +24,15 @@ import User from './Pages/Dashboard/User'
 import MyContext from './Context'
 
 function GeneraleRoute() {
-  const {connection} = useContext(MyContext)
+   const {connection} = useContext(MyContext)
   console.log(connection)
   return (
     <Routes>
          
 
 
-          {
-            connection ? (
-              <>
-              <Route path='/' element={<Root/>}>
+         
+              <Route path='/' element={connection ?<Root/> : <Navigate to='/login'/>}>
                     <Route path='' element={<Home/>} index={true} />
 
                     <Route path='/profile' element={<Profile/>}/> 
@@ -51,27 +49,26 @@ function GeneraleRoute() {
                     </Route>
                 </Route>
 
-              <Route path='/profile' element={<Profile/>}/> 
+              <Route path='/profile' element={connection ? <Profile/>:<Navigate to='/login'/>}/> 
               <Route path = '/challenge' element={<Challenge/>}>
                 <Route path=''element={<ChallengeFeed/>} index={true}/>
                 <Route path='challenge/:id' element={<ChallengePart/>}/>
               </Route>
-              <Route path='/dashboard' element={<Dashboard/>}>
+              <Route path='/dashboard' element={connection ? <Dashboard/> : <Navigate to="/login"/>}>
                           <Route path='' element={<Principale/>} index={true}/>
                           <Route path='Notification' element={<Notifiaction/>}/>
                           <Route path="Post" element={<Post/>}/>
                           <Route path="Settings" element={<Settings/>}/>
                           <Route path='user' element={<User/>}/>
               </Route>
-              </>
-            ):(<>
+             
+             
                 <Route path='/login' element={<Login/>}/>       
                 <Route path='/signup' element={<Signup/>}/>
                 <Route path='/confirmation' element={<Confirmation/>}/> 
                 <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
-              </>  
-            )
-          }
+              
+        
          
 
     </Routes>
