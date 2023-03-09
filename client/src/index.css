@@ -34,3 +34,13 @@ html, body{
     -ms-transform:  translate(-50%, -50%);
     -o-transform:  translate(-50%, -50%);
 }
+
+input[type="radio"] {
+    display: none;
+}
+input[type="radio"]:checked~label {
+    background-color: #01CF35;
+    border: #01CF35;
+    color: #F2F2F2;
+
+}

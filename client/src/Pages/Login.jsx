@@ -20,6 +20,7 @@ function Login() {
         const values ={email,password}
         const login = await axios.post('http://localhost:8000/api/routes/auth/login',values)
         if(login.status === 200){
+            console.log(values)
             navigate('/')
         }
       }

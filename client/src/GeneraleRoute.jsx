@@ -65,8 +65,9 @@ function GeneraleRoute() {
              
                 <Route path='/login' element={<Login/>}/>       
                 <Route path='/signup' element={<Signup/>}/>
-                <Route path='/confirmation' element={<Confirmation/>}/> 
+                <Route path='/confirmation' element={<Confirmation/>}/>             
                 <Route path='/confirmPassword' element={<ConfirmPassword/>}/>
+
               
         
          

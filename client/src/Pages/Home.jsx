@@ -12,7 +12,7 @@ import Lien from '../Image/link.svg'
 import Movie from '../Image/video.svg'
 import Aud  from '../Image/audio.svg'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Madama from '../Image/madama.svg'
+import pc from '../Image/getcertified.jpg'
 import Like from '../Image/like.svg'
 import Comments from '../Image/comments.svg'
 import Partage from '../Image/partage.svg'
@@ -245,7 +245,7 @@ function Home() {
                     }
                 </div>
                 <div className="w-[100%]">
-                      <img className='w-[100%]' src={Madama} alt='madama'/>
+                      <img className='w-[100%]' src={pc} alt='madama'/>
                 </div>
                 <div className="flex justify-between items-center px-6 py-3">
                 <img src={Like} alt='madama'/><span>{}</span>
