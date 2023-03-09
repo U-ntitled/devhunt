@@ -43,7 +43,12 @@ Type the following command while your current folder is _devhunt_
   cd client
   npm run watch
 ```
-  
+
+For now, we have created a log in information without authentification security so that you can log in without email confirmation... 
+You can log in as _example@gmail.com_ and _password_ as password
+
+Note that we use mongodb so you must connect to the internet to access our database
+
 ## Motivation and goals
 
 We are an IT team that want to develop our skills and acquire experiences through competitions and projects
@@ -52,9 +57,12 @@ We'd like to participate to the HIU Hackaton to improve our skills :)
 ## About us
 
 Our team is called **UNTITLED** and we are 5 IT students in the team:
-* RAZAFIMAMY Iraky Ny Avo Antonino L2 IG
+* RAZAFIMAMY Iraky Ny Avo Antonino L2 IG 
 * ANDRIANIAINA Fanomezantsoa Nomena L2 IG
-* RAKOTONDRANAIVO Gilbert Joyaux Wendi Anderson L2 IG
-* NOMENJANAHARY Riry L2 IG
-* VONIARIMALALA Fiaro Miangaly L2 GB
+* RAKOTONDRANAIVO Gilbert Joyaux Wendi Anderson L2 IG 
+* NOMENJANAHARY Riry L2 IG 
+* VONIARIMALALA Fiaro Miangaly L2 GB 
 
+### Contact us
+
+_fiaromiangaly@gmail.com_
